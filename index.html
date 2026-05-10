@@ -2035,11 +2035,7 @@ function qvAddToCart() {
 // ── UTILS ──
 function openMobileNav() { document.getElementById('mobileNav').classList.add('open'); }
 function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); }
-function handleNewsletterSubmit(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('.newsletter-btn');
-  btn.textContent = 'Sent ✓';
-  setTimeout(() => { btn.textContent = 'Subscribe'; e.target.reset(); }, 3000);
+, 3000);
 }
 
 function handleCustomOrder(e) {
