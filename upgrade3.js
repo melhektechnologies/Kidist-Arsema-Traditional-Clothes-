@@ -1,5 +1,5 @@
 const fs = require('fs');
-let html = fs.readFileSync('kidist-arsema.html', 'utf8');
+let html = fs.readFileSync('index.html', 'utf8');
 const P = (n) => `photos/photo_${n}_2026-05-10_14-19-11.jpg`;
 
 // ═══════════════════════════════════════════════
@@ -362,5 +362,5 @@ document.querySelectorAll('.product-actions button, .size-btn').forEach(btn => {
 // Insert before the last </script>
 html = html.replace(/(<\/script>\s*<\/body>)/, js3 + '\n$1');
 
-fs.writeFileSync('kidist-arsema.html', html, 'utf8');
+fs.writeFileSync('index.html', html, 'utf8');
 console.log('✅ Phase 3 done! Lines:', html.split('\n').length);

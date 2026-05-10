@@ -1,5 +1,5 @@
 const fs = require('fs');
-const h = fs.readFileSync('kidist-arsema.html', 'utf8');
+const h = fs.readFileSync('index.html', 'utf8');
 const check = (label, test) => console.log((test ? '✅' : '❌'), label);
 check('QV modal HTML', h.includes('id="qv-modal"'));
 check('QV overlay', h.includes('id="qv-overlay"'));

@@ -1,5 +1,5 @@
 const fs = require('fs');
-let html = fs.readFileSync('kidist-arsema.html', 'utf8');
+let html = fs.readFileSync('index.html', 'utf8');
 
 // ── CLEANUP 1: Escape single quotes in inline onclick handlers ──
 // Specifically looking for addToCart('Men's ...')
@@ -329,5 +329,5 @@ if (firstScriptPos !== -1 && lastScriptPos !== -1) {
   html = html.substring(0, firstScriptPos) + consolidatedJS + html.substring(lastScriptPos);
 }
 
-fs.writeFileSync('kidist-arsema.html', html, 'utf8');
+fs.writeFileSync('index.html', html, 'utf8');
 console.log('✅ Site consolidated and cleaned!');

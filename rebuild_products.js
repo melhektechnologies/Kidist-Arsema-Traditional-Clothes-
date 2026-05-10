@@ -1,5 +1,5 @@
 const fs = require('fs');
-let html = fs.readFileSync('kidist-arsema.html', 'utf8');
+let html = fs.readFileSync('index.html', 'utf8');
 
 const PRODUCTS = [
   { id: 1, img: "photos/photo_12_2026-05-10_14-19-11.jpg", name: "Addis Gold Kemis", price: "ETB 4,800", badge: "badge-new", badgeText: "New" },
@@ -39,5 +39,5 @@ productsHTML += '</div>';
 // Replace the entire products-grid section
 html = html.replace(/<div class="products-grid">[\s\S]*?<\/div>[\s\S]*?<\/section>/, productsHTML + '\n</section>');
 
-fs.writeFileSync('kidist-arsema.html', html, 'utf8');
+fs.writeFileSync('index.html', html, 'utf8');
 console.log('✅ Rebuilt products grid with correct Quick View buttons.');

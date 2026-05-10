@@ -1,5 +1,5 @@
 const fs = require('fs');
-let html = fs.readFileSync('kidist-arsema.html', 'utf8');
+let html = fs.readFileSync('index.html', 'utf8');
 
 // ── FIX 1: Add Lenis CDN back (it was stripped) ──
 // Insert before first GSAP script tag
@@ -126,7 +126,7 @@ html = html.replace(
   '.eth-pattern { position: absolute; z-index: 1; opacity: 0.04; pointer-events: none; }'
 );
 
-fs.writeFileSync('kidist-arsema.html', html, 'utf8');
+fs.writeFileSync('index.html', html, 'utf8');
 console.log('✅ Fix script done! Lines:', html.split('\n').length);
 
 // Verify fixes

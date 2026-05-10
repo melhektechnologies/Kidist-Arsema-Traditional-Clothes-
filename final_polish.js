@@ -1,5 +1,5 @@
 const fs = require('fs');
-let html = fs.readFileSync('kidist-arsema.html', 'utf8');
+let html = fs.readFileSync('index.html', 'utf8');
 
 // ── FIX 1: Remove the syntax error in showToast ──
 html = html.replace(
@@ -196,5 +196,5 @@ window.addEventListener('load', initParticles);
 `;
 html = html.replace('</script>', particlesJS + '\n</script>');
 
-fs.writeFileSync('kidist-arsema.html', html, 'utf8');
+fs.writeFileSync('index.html', html, 'utf8');
 console.log('✅ Final polish and bug fixes complete!');

@@ -1,5 +1,5 @@
 const fs = require('fs');
-let html = fs.readFileSync('kidist-arsema.html', 'utf8');
+let html = fs.readFileSync('index.html', 'utf8');
 
 const P = (n) => `photos/photo_${n}_2026-05-10_14-19-11.jpg`;
 
@@ -304,5 +304,5 @@ html = html.replace(/\n<!-- GSAP[\s\S]*$/, '');
 html = html.replace(/<\/body>\s*<\/html>\s*$/, '');
 html = html.trimEnd() + endScripts;
 
-fs.writeFileSync('kidist-arsema.html', html, 'utf8');
+fs.writeFileSync('index.html', html, 'utf8');
 console.log('✅ Upgrade complete! Lines:', html.split('\n').length);

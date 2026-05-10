@@ -1,5 +1,5 @@
 const fs = require('fs');
-let html = fs.readFileSync('kidist-arsema.html', 'utf8');
+let html = fs.readFileSync('index.html', 'utf8');
 
 // ── ADD QUICK VIEW BUTTON TO PRODUCTS ──
 // I'll replace the product-actions content to include a Quick View icon button
@@ -48,5 +48,5 @@ for (let i = 1; i <= 8; i++) {
 // I'll update the consolidate.js content to be even more robust.
 // Re-running the consolidation with the new HTML.
 
-fs.writeFileSync('kidist-arsema.html', html, 'utf8');
+fs.writeFileSync('index.html', html, 'utf8');
 console.log('✅ Added Quick View buttons and cleaned HTML.');
