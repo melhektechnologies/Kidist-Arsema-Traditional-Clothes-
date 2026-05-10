@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temp Scripts (optional, but keeping the core ones)
+# add_qv_buttons.js
+# consolidate.js
+# diagnose.js
+# final_polish.js
+# fix.js
+# rebuild_products.js
+# upgrade.js
+# upgrade2.js
+# upgrade3.js

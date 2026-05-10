@@ -1,0 +1,1990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kidist Arsema — Ethiopian Traditional Fashion</title>
+<meta name="description" content="Kidist Arsema — Luxury Ethiopian traditional fashion. Habesha Kemis, wedding collections, and custom tailoring from Addis Ababa.">
+<meta name="keywords" content="Ethiopian fashion, Habesha Kemis, Ethiopian traditional clothes, Addis Ababa fashion, Ethiopian wedding dress">
+<meta property="og:title" content="Kidist Arsema — Ethiopian Traditional Fashion">
+<meta property="og:description" content="Luxury traditional fashion crafted with timeless Ethiopian identity.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Manrope:wght@300;400;500;600;700&family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C8A96B;
+  --gold-light: #D4BC8A;
+  --gold-pale: #F0E8D8;
+  --cream: #F8F5F0;
+  --beige: #E9DFC8;
+  --coffee: #3B2B24;
+  --coffee-mid: #5C4035;
+  --coffee-light: #8B6B5E;
+  --white: #FFFFFF;
+  --black: #111111;
+  --green: #1B4332;
+  --green-light: #2D6A4F;
+  --charcoal: #2A2018;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Manrope', sans-serif;
+  background: var(--cream);
+  color: var(--coffee);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ── CUSTOM CURSOR ── */
+#cursor { position: fixed; width: 12px; height: 12px; background: var(--gold); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease; mix-blend-mode: multiply; }
+#cursor-ring { position: fixed; width: 40px; height: 40px; border: 1px solid var(--gold); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), width 0.4s ease, height 0.4s ease, opacity 0.3s ease; opacity: 0.6; }
+body:hover #cursor { opacity: 1; }
+.cursor-grow #cursor { width: 48px; height: 48px; background: rgba(200, 169, 107, 0.3); }
+.cursor-grow #cursor-ring { width: 60px; height: 60px; }
+
+/* ── PRELOADER ── */
+#preloader {
+  position: fixed; inset: 0; z-index: 10000;
+  background: var(--charcoal);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  transition: opacity 0.8s ease 0.3s, visibility 0.8s ease 0.3s;
+}
+#preloader.hidden { opacity: 0; visibility: hidden; }
+.preloader-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  color: var(--gold);
+  text-align: center;
+  animation: shimmerText 2s ease-in-out infinite alternate;
+}
+.preloader-sub {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-top: 0.75rem;
+  opacity: 0.7;
+}
+.preloader-bar { width: 160px; height: 1px; background: rgba(200,169,107,0.2); margin-top: 2rem; position: relative; overflow: hidden; }
+.preloader-bar::after { content: ''; position: absolute; inset: 0; background: var(--gold); transform: translateX(-100%); animation: loadBar 1.8s cubic-bezier(0.4, 0, 0.2, 1) forwards 0.3s; }
+@keyframes loadBar { to { transform: translateX(0); } }
+@keyframes shimmerText { from { opacity: 0.6; } to { opacity: 1; } }
+
+/* ── ETHIOPIAN PATTERN SVG DEFS ── */
+.eth-pattern { position: absolute; z-index: 1; opacity: 0.04; pointer-events: none; }
+
+/* ── NAVBAR ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 1.5rem 4rem;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: background 0.5s ease, backdrop-filter 0.5s ease, padding 0.4s ease, box-shadow 0.4s ease;
+}
+nav.scrolled {
+  background: rgba(248, 245, 240, 0.9);
+  backdrop-filter: blur(20px) saturate(180%);
+  padding: 1rem 4rem;
+  box-shadow: 0 1px 0 rgba(200, 169, 107, 0.2);
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 1.35rem;
+  letter-spacing: 0.08em;
+  color: var(--white);
+  text-decoration: none;
+  transition: color 0.4s ease;
+  line-height: 1.2;
+}
+nav.scrolled .nav-logo { color: var(--coffee); }
+.nav-logo span { color: var(--gold); display: block; font-size: 0.55rem; letter-spacing: 0.4em; text-transform: uppercase; font-family: 'Manrope', sans-serif; font-weight: 500; margin-top: 2px; }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; color: rgba(255,255,255,0.8); font-weight: 500; position: relative; transition: color 0.3s ease; }
+nav.scrolled .nav-links a { color: var(--coffee-mid); }
+.nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+.nav-links a:hover::after { transform: scaleX(1); }
+.nav-links a:hover { color: var(--gold) !important; }
+.nav-right { display: flex; align-items: center; gap: 1.5rem; }
+.nav-icon { color: rgba(255,255,255,0.8); font-size: 1.1rem; cursor: none; transition: color 0.3s; }
+nav.scrolled .nav-icon { color: var(--coffee); }
+.nav-icon:hover { color: var(--gold) !important; }
+.cart-badge { position: relative; }
+.cart-badge::after { content: '2'; position: absolute; top: -6px; right: -8px; background: var(--gold); color: var(--charcoal); font-size: 0.55rem; width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-family: 'Manrope', sans-serif; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: none; background: none; border: none; }
+.hamburger span { display: block; width: 24px; height: 1px; background: var(--white); transition: background 0.3s; }
+nav.scrolled .hamburger span { background: var(--coffee); }
+
+/* ── HERO ── */
+#hero {
+  position: relative; min-height: 100vh;
+  display: flex; align-items: flex-end;
+  overflow: hidden;
+  background: var(--charcoal);
+}
+#hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, rgba(26,17,13,0.75) 45%, transparent 100%);
+  z-index: 1; pointer-events: none;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: 
+    radial-gradient(ellipse 80% 60% at 70% 50%, rgba(200, 169, 107, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 20% 80%, rgba(27, 67, 50, 0.3) 0%, transparent 50%),
+    linear-gradient(165deg, #1A110D 0%, #2A1E18 40%, #1B140F 100%);
+}
+.hero-pattern {
+  position: absolute; inset: 0; z-index: 1; opacity: 0.05;
+  background-image: 
+    repeating-linear-gradient(45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50%),
+    repeating-linear-gradient(-45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50%);
+  background-size: 30px 30px;
+}
+.hero-gradient-orb {
+  position: absolute; z-index: 1;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200, 169, 107, 0.15) 0%, transparent 70%);
+  top: -100px; right: -100px;
+  animation: orbFloat 8s ease-in-out infinite alternate;
+}
+@keyframes orbFloat { from { transform: translate(0, 0) scale(1); } to { transform: translate(-40px, 40px) scale(1.1); } }
+
+.hero-dress-silhouette {
+  position: absolute;
+  right: 8%;
+  bottom: 0;
+  width: min(38vw, 480px);
+  height: 90vh;
+}
+
+/* Illustrated dress silhouette using CSS */
+.dress-illustration {
+  position: absolute; inset: 0;
+  display: flex; align-items: flex-end; justify-content: center;
+}
+
+.hero-content {
+  position: relative; z-index: 3;
+  padding: 0 4rem 8rem;
+  max-width: 700px;
+}
+.hero-eyebrow {
+  font-size: 0.6rem; letter-spacing: 0.6em; text-transform: uppercase;
+  color: var(--gold); font-weight: 600; font-family: 'Manrope', sans-serif;
+  margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem;
+  opacity: 0; transform: translateY(20px);
+  animation: heroFadeUp 1s ease forwards 1.8s;
+}
+.hero-eyebrow::before { content: ''; width: 40px; height: 1px; background: var(--gold); opacity: 0.5; }
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.5rem, 7vw, 6.5rem);
+  font-weight: 300; line-height: 1.0;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  margin-bottom: 2rem;
+  opacity: 0; transform: translateY(40px);
+  animation: heroFadeUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards 2s;
+}
+.hero-title em { font-style: italic; color: var(--gold-light); font-weight: 300; }
+.hero-subtitle {
+  font-size: 0.9rem; line-height: 1.8; letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.55);
+  max-width: 420px;
+  margin-bottom: 3rem;
+  font-weight: 300;
+  opacity: 0; transform: translateY(20px);
+  animation: heroFadeUp 1s ease forwards 2.4s;
+}
+.hero-ctas {
+  display: flex; gap: 1.25rem; flex-wrap: wrap;
+  opacity: 0; transform: translateY(20px);
+  animation: heroFadeUp 1s ease forwards 2.7s;
+}
+@keyframes heroFadeUp { to { opacity: 1; transform: translateY(0); } }
+
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  background: var(--gold);
+  color: var(--charcoal);
+  padding: 1rem 2.25rem;
+  font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+  font-weight: 700; font-family: 'Manrope', sans-serif;
+  text-decoration: none; border: none; cursor: none;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative; overflow: hidden;
+}
+.btn-primary::before { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0.15); transform: translateX(-100%) skewX(-15deg); transition: transform 0.4s ease; }
+.btn-primary:hover::before { transform: translateX(120%) skewX(-15deg); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(200, 169, 107, 0.4); }
+
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: var(--white);
+  padding: 1rem 2.25rem;
+  font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+  font-weight: 600; font-family: 'Manrope', sans-serif;
+  text-decoration: none; cursor: none;
+  transition: border-color 0.3s, color 0.3s, transform 0.3s;
+}
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+.hero-scroll-indicator {
+  position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  z-index: 3;
+  opacity: 0; animation: heroFadeUp 1s ease forwards 3.2s;
+}
+.hero-scroll-indicator span { font-size: 0.55rem; letter-spacing: 0.4em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+.scroll-line { width: 1px; height: 60px; background: linear-gradient(to bottom, rgba(200,169,107,0.6), transparent); animation: scrollPulse 2s ease infinite; }
+@keyframes scrollPulse { 0%,100% { opacity: 0.3; transform: scaleY(1); } 50% { opacity: 1; transform: scaleY(0.6); } }
+
+.hero-stats {
+  position: absolute; right: 4rem; bottom: 8rem;
+  display: flex; gap: 3rem; z-index: 3;
+  opacity: 0; animation: heroFadeUp 1s ease forwards 3s;
+  background: rgba(26,17,13,0.4); backdrop-filter: blur(12px);
+  padding: 1.5rem 2rem; border: 1px solid rgba(200,169,107,0.2);
+}
+.stat { text-align: center; }
+.stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 300; color: var(--gold-light); line-height: 1; }
+.stat-label { font-size: 0.5rem; letter-spacing: 0.4em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 0.5rem; }
+
+/* ── MARQUEE TICKER ── */
+.marquee-section {
+  background: var(--gold);
+  padding: 0.9rem 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.marquee-track { display: inline-flex; animation: marquee 28s linear infinite; }
+.marquee-item { font-size: 0.6rem; letter-spacing: 0.35em; text-transform: uppercase; font-weight: 700; color: var(--charcoal); padding: 0 2.5rem; font-family: 'Manrope', sans-serif; }
+.marquee-dot { color: var(--coffee); opacity: 0.4; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ── PRESS / TRUST BAR ── */
+#press {
+  background: var(--charcoal); border-bottom: 1px solid rgba(255,255,255,0.04);
+  padding: 3rem 5rem;
+}
+.press-inner { display: flex; align-items: center; gap: 4rem; max-width: 1400px; margin: 0 auto; }
+.press-label { font-size: 0.55rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(200,169,107,0.6); white-space: nowrap; }
+.press-logos { display: flex; justify-content: space-between; flex: 1; align-items: center; }
+.press-logo { font-family: 'Bodoni Moda', serif; font-size: 1.3rem; color: rgba(255,255,255,0.3); font-style: italic; transition: color 0.4s; cursor: default; letter-spacing: 0.05em; }
+.press-logo:hover { color: var(--gold-light); }
+
+/* ── SECTIONS COMMON ── */
+section { padding: 8rem 5rem; }
+.section-eyebrow {
+  font-size: 0.58rem; letter-spacing: 0.5em; text-transform: uppercase;
+  color: var(--gold); font-weight: 700; margin-bottom: 1.25rem;
+  display: inline-flex; align-items: center; gap: 0.8rem;
+}
+.section-eyebrow::after { content: ''; width: 30px; height: 1px; background: var(--gold); opacity: 0.5; }
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.6rem, 4.5vw, 4.2rem);
+  font-weight: 300; line-height: 1.08; color: var(--coffee);
+  letter-spacing: -0.02em;
+}
+.section-title em { font-style: italic; color: var(--coffee-light); }
+.section-subtitle { font-size: 0.88rem; color: var(--coffee-light); line-height: 1.9; max-width: 480px; margin-top: 1.5rem; }
+
+/* Reveal animations */
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+/* ── FEATURED COLLECTIONS ── */
+#collections { padding-top: 7rem; padding-bottom: 7rem; background: var(--white); }
+.collections-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; }
+.view-all {
+  font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--coffee-mid); text-decoration: none; font-weight: 700;
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  transition: color 0.4s, gap 0.4s;
+  border-bottom: 1px solid rgba(59,43,36,0.2); padding-bottom: 3px;
+}
+.view-all:hover { color: var(--gold); gap: 1rem; border-color: var(--gold); }
+
+.collections-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 2px;
+}
+.col-card {
+  position: relative; overflow: hidden;
+  cursor: none;
+  aspect-ratio: 3/4;
+}
+.col-card:first-child { grid-row: span 2; aspect-ratio: auto; }
+.col-card-img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+}
+.col-card:hover .col-card-img { transform: scale(1.06); }
+
+/* Placeholder gradient images */
+.img-gradient-1 { background: linear-gradient(160deg, #3B2B24 0%, #6B4A3B 35%, #8B6B5E 60%, #C8A96B 100%); width: 100%; height: 100%; }
+.img-gradient-2 { background: linear-gradient(140deg, #1B4332 0%, #2D6A4F 40%, #3B2B24 100%); width: 100%; height: 100%; }
+.img-gradient-3 { background: linear-gradient(160deg, #C8A96B 0%, #D4BC8A 40%, #E9DFC8 100%); width: 100%; height: 100%; }
+.img-gradient-4 { background: linear-gradient(140deg, #2A1E18 0%, #5C4035 50%, #8B6B5E 100%); width: 100%; height: 100%; }
+.img-gradient-5 { background: linear-gradient(160deg, #F0E8D8 0%, #E9DFC8 30%, #C8A96B 100%); width: 100%; height: 100%; }
+.img-gradient-6 { background: linear-gradient(140deg, #3B2B24 0%, #1B4332 100%); width: 100%; height: 100%; }
+
+/* SVG dress on gradient */
+.col-figure { position: relative; width: 100%; height: 100%; overflow: hidden; }
+.col-figure svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+.col-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(42, 30, 24, 0.85) 0%, rgba(42, 30, 24, 0.2) 40%, transparent 65%);
+  transition: background 0.5s ease;
+}
+.col-card:hover .col-overlay { background: linear-gradient(to top, rgba(42, 30, 24, 0.9) 0%, rgba(42, 30, 24, 0.35) 50%, transparent 75%); }
+.col-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem 1.75rem; }
+.col-cat { font-size: 0.55rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 0.5rem; }
+.col-name { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 400; color: var(--white); line-height: 1.1; }
+.col-card:first-child .col-name { font-size: 2.4rem; }
+.col-cta {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold-light); font-weight: 600;
+  margin-top: 1rem; text-decoration: none;
+  opacity: 0; transform: translateY(8px);
+  transition: opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s;
+}
+.col-card:hover .col-cta { opacity: 1; transform: translateY(0); }
+.col-cta-arrow { font-size: 0.75rem; transition: transform 0.3s; }
+.col-card:hover .col-cta-arrow { transform: translateX(4px); }
+
+/* ── BRAND STORY / ABOUT ── */
+#story { background: var(--charcoal); overflow: hidden; position: relative; padding-top: 10rem; padding-bottom: 10rem; }
+.story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; align-items: center; }
+.story-visual { position: relative; height: 750px; }
+.story-img-main {
+  position: absolute; top: 0; left: 0;
+  width: 75%; height: 85%;
+  background: linear-gradient(150deg, #3B2B24, #C8A96B 80%);
+  overflow: hidden;
+}
+.story-img-accent {
+  position: absolute; bottom: 0; right: 0;
+  width: 55%; height: 60%;
+  background: linear-gradient(140deg, #1B4332, #2D6A4F);
+  border: 4px solid var(--charcoal);
+  overflow: hidden;
+}
+.story-gold-line { position: absolute; top: 50%; left: 78%; width: 80px; height: 1px; background: var(--gold); }
+.story-number { position: absolute; top: -1.5rem; right: 55%; font-family: 'Cormorant Garamond', serif; font-size: 8rem; font-weight: 300; color: rgba(200, 169, 107, 0.08); line-height: 1; pointer-events: none; }
+.story-content .section-title { color: var(--cream); }
+.story-content .section-eyebrow { color: var(--gold); }
+.story-text { font-size: 0.88rem; line-height: 2; color: rgba(248, 245, 240, 0.55); margin-top: 1.75rem; }
+.story-text + .story-text { margin-top: 1rem; }
+.story-quote {
+  margin: 2.5rem 0;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--gold);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem; font-weight: 400; font-style: italic;
+  color: var(--gold-light); line-height: 1.5;
+}
+.story-values { display: flex; gap: 2.5rem; margin-top: 2.5rem; }
+.story-val { }
+.story-val-num { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--gold); font-weight: 300; }
+.story-val-label { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(248, 245, 240, 0.4); margin-top: 0.2rem; }
+
+/* ── NEW ARRIVALS ── */
+#new-arrivals { background: var(--cream); padding-top: 9rem; padding-bottom: 9rem; }
+.arrivals-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 5rem; }
+.products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+.product-card { cursor: none; }
+.product-img-wrap { position: relative; overflow: hidden; aspect-ratio: 3/4; background: var(--beige); margin-bottom: 1.25rem; }
+.product-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); display: block; }
+.product-card:hover .product-img { transform: scale(1.05); }
+.product-badges { position: absolute; top: 1rem; left: 1rem; display: flex; flex-direction: column; gap: 0.4rem; }
+.badge { font-size: 0.5rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700; padding: 0.3rem 0.7rem; font-family: 'Manrope', sans-serif; }
+.badge-new { background: var(--coffee); color: var(--cream); }
+.badge-sale { background: var(--gold); color: var(--charcoal); }
+.product-actions {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(42,30,24,0.8), transparent);
+  display: flex; gap: 0.5rem; justify-content: center;
+  transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.product-card:hover .product-actions { transform: translateY(0); }
+.action-btn {
+  background: var(--gold); color: var(--charcoal);
+  border: none; padding: 0.65rem 1.25rem;
+  font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
+  font-weight: 700; font-family: 'Manrope', sans-serif;
+  cursor: none; flex: 1; transition: background 0.25s;
+}
+.action-btn:hover { background: var(--gold-light); }
+.action-btn-icon { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: var(--white); width: 42px; flex: none; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+
+.product-name { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 400; color: var(--coffee); margin-bottom: 0.3rem; }
+.product-price { display: flex; gap: 0.75rem; align-items: baseline; }
+.price-current { font-size: 0.85rem; font-weight: 600; color: var(--coffee); }
+.price-original { font-size: 0.75rem; color: var(--coffee-light); text-decoration: line-through; }
+.product-rating { display: flex; gap: 2px; margin-top: 0.4rem; }
+.star { color: var(--gold); font-size: 0.7rem; }
+
+/* ── WEDDING BANNER ── */
+#wedding { position: relative; min-height: 85vh; display: flex; align-items: center; overflow: hidden; padding: 0; }
+.wedding-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, #1A110D 0%, #3B2B24 40%, #1B4332 100%);
+}
+.wedding-pattern { position: absolute; inset: 0; opacity: 0.06; background-image: radial-gradient(circle, var(--gold) 1px, transparent 1px); background-size: 24px 24px; }
+.wedding-content { position: relative; z-index: 2; max-width: 650px; padding: 0 5rem; }
+.wedding-eyebrow { font-size: 0.6rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.8rem; }
+.wedding-eyebrow::after { content: ''; width: 30px; height: 1px; background: var(--gold); opacity: 0.5; }
+.wedding-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 5vw, 5.5rem); font-weight: 300; line-height: 1.05; color: var(--cream); margin-bottom: 1.5rem; letter-spacing: -0.01em; }
+.wedding-title em { font-style: italic; color: var(--gold-light); }
+.wedding-text { font-size: 0.85rem; line-height: 1.9; color: rgba(248,245,240,0.5); margin-bottom: 2.5rem; }
+.wedding-visual {
+  position: absolute; right: 0; top: 0; bottom: 0; width: 45%;
+  background: linear-gradient(120deg, #C8A96B 0%, #D4BC8A 50%, #F0E8D8 100%);
+  clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+.wedding-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(26, 17, 13, 0.95) 30%, transparent 70%); }
+
+/* ── LOOKBOOK ── */
+#lookbook { background: var(--white); padding: 6rem 0; }
+.lookbook-header { padding: 0 4rem; margin-bottom: 3rem; display: flex; justify-content: space-between; align-items: flex-end; }
+.lookbook-scroll { display: flex; gap: 1.5px; overflow-x: auto; padding: 0 4rem; scrollbar-width: none; }
+.lookbook-scroll::-webkit-scrollbar { display: none; }
+.lookbook-item { flex: 0 0 auto; position: relative; overflow: hidden; cursor: none; }
+.lookbook-item:nth-child(odd) { width: 30vw; max-width: 380px; }
+.lookbook-item:nth-child(even) { width: 22vw; max-width: 280px; margin-top: 4rem; }
+.lookbook-img { width: 100%; height: 500px; display: block; object-fit: cover; transition: transform 0.8s ease; }
+.lookbook-item:hover .lookbook-img { transform: scale(1.04); }
+.lookbook-caption { padding: 1rem 0; }
+.lookbook-num { font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; color: var(--gold); font-weight: 300; letter-spacing: 0.1em; }
+.lookbook-name { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--coffee); font-weight: 400; }
+
+/* Gradient lookbook items */
+.lb-1 { background: linear-gradient(160deg, #C8A96B 0%, #8B6B5E 60%, #3B2B24 100%); height: 100%; }
+.lb-2 { background: linear-gradient(140deg, #1B4332 0%, #3B2B24 100%); height: 100%; }
+.lb-3 { background: linear-gradient(160deg, #F0E8D8 0%, #C8A96B 100%); height: 100%; }
+.lb-4 { background: linear-gradient(140deg, #2A1E18 0%, #6B4A3B 100%); height: 100%; }
+.lb-5 { background: linear-gradient(160deg, #E9DFC8 0%, #3B2B24 100%); height: 100%; }
+
+/* ── CULTURAL TIMELINE ── */
+#culture { background: var(--cream); padding: 9rem 5rem; }
+.culture-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 8rem; align-items: center; margin-top: 5rem; }
+.culture-timeline { position: relative; padding-left: 2rem; }
+.culture-timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--gold), transparent); }
+.timeline-item { position: relative; margin-bottom: 3rem; padding-left: 2rem; }
+.timeline-item::before { content: ''; position: absolute; left: -2.4rem; top: 0.4rem; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px var(--cream); }
+.timeline-year { font-size: 0.6rem; letter-spacing: 0.3em; color: var(--gold); font-weight: 600; text-transform: uppercase; margin-bottom: 0.4rem; }
+.timeline-event { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; color: var(--coffee); font-weight: 400; margin-bottom: 0.5rem; }
+.timeline-desc { font-size: 0.8rem; color: var(--coffee-light); line-height: 1.75; }
+.culture-visual { position: relative; }
+.culture-pattern-box {
+  width: 100%; aspect-ratio: 1;
+  background: var(--charcoal);
+  position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.culture-pattern-box svg { width: 100%; height: 100%; opacity: 0.8; }
+
+/* ── TESTIMONIALS ── */
+#testimonials { background: var(--charcoal); padding: 8rem 5rem; }
+.testimonials-header { text-align: center; margin-bottom: 5rem; }
+.testimonials-header .section-title { color: var(--cream); }
+.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; }
+.testimonial-card {
+  background: rgba(255,255,255,0.03);
+  border: none;
+  border-top: 1px solid rgba(200,169,107,0.15);
+  padding: 3rem 2.5rem;
+  position: relative;
+  transition: background 0.5s, transform 0.5s;
+}
+.testimonial-card:hover { background: rgba(200,169,107,0.07); transform: translateY(-6px); }
+.testimonial-card:nth-child(2) { border-left: 1px solid rgba(200,169,107,0.1); border-right: 1px solid rgba(200,169,107,0.1); }
+.testimonial-quote { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-style: italic; color: var(--cream); line-height: 1.65; margin-bottom: 2rem; }
+.testimonial-stars { display: flex; gap: 3px; margin-bottom: 1.25rem; }
+.testimonial-author { display: flex; align-items: center; gap: 1rem; }
+.author-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--coffee)); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--white); font-weight: 300; }
+.author-name { font-size: 0.8rem; font-weight: 600; color: var(--cream); }
+.author-loc { font-size: 0.65rem; color: rgba(248, 245, 240, 0.4); letter-spacing: 0.1em; margin-top: 2px; }
+.testimonial-big-quote { position: absolute; top: 1.5rem; right: 2rem; font-family: 'Cormorant Garamond', serif; font-size: 5rem; color: rgba(200, 169, 107, 0.12); line-height: 1; font-style: italic; pointer-events: none; }
+
+/* ── GALLERY ── */
+#gallery { background: var(--white); padding: 7rem 0; }
+.gallery-header { padding: 0 5rem; margin-bottom: 4rem; }
+.gallery-grid { display: grid; grid-template-columns: repeat(6, 1fr); grid-template-rows: repeat(2, 220px); gap: 3px; }
+.gallery-item { overflow: hidden; position: relative; cursor: none; }
+.gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+.gallery-item:nth-child(2) { grid-column: span 2; }
+.gallery-item:nth-child(5) { grid-column: span 2; }
+.gallery-item:nth-child(6) { grid-column: span 2; }
+.gallery-item-inner { width: 100%; height: 100%; transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+.gallery-item:hover .gallery-item-inner { transform: scale(1.08); }
+.g1 { background: linear-gradient(145deg, #C8A96B, #8B6B5E, #3B2B24); }
+.g2 { background: linear-gradient(135deg, #1B4332, #2D6A4F, #C8A96B); }
+.g3 { background: linear-gradient(150deg, #3B2B24, #5C4035); }
+.g4 { background: linear-gradient(140deg, #F0E8D8, #C8A96B); }
+.g5 { background: linear-gradient(160deg, #2A1E18, #1B4332); }
+.g6 { background: linear-gradient(130deg, #E9DFC8, #8B6B5E, #3B2B24); }
+.g7 { background: linear-gradient(155deg, #C8A96B, #1B4332); }
+
+/* ── NEWSLETTER ── */
+#newsletter { background: var(--charcoal); padding: 7rem 5rem; position: relative; overflow: hidden; }
+#newsletter::before {
+  content: '';
+  position: absolute; top: -50%; left: -10%;
+  width: 500px; height: 500px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(200,169,107,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.newsletter-inner { display: flex; justify-content: space-between; align-items: center; gap: 4rem; }
+.newsletter-text .section-eyebrow { color: var(--gold); }
+.newsletter-text h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 300; color: var(--cream); line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.newsletter-form { display: flex; gap: 0; flex: 1; max-width: 500px; }
+.newsletter-input {
+  flex: 1;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(200,169,107,0.25);
+  border-right: none;
+  padding: 1.1rem 1.5rem;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.85rem;
+  color: var(--cream);
+  outline: none;
+  transition: background 0.3s, border-color 0.3s;
+}
+.newsletter-input::placeholder { color: rgba(248,245,240,0.35); }
+.newsletter-input:focus { background: rgba(200,169,107,0.1); border-color: var(--gold); }
+.newsletter-btn {
+  background: var(--gold); color: var(--charcoal);
+  border: none; padding: 1.1rem 2.2rem;
+  font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase;
+  font-weight: 700; font-family: 'Manrope', sans-serif;
+  cursor: none; transition: background 0.3s, transform 0.3s;
+  white-space: nowrap;
+}
+.newsletter-btn:hover { background: var(--gold-light); transform: translateX(2px); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--charcoal);
+  padding: 5rem 4rem 2rem;
+  position: relative; overflow: hidden;
+}
+.footer-top { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 4rem; }
+.footer-brand-name { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; color: var(--cream); letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+.footer-brand-sub { font-size: 0.55rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+.footer-brand-desc { font-size: 0.8rem; line-height: 1.85; color: rgba(248, 245, 240, 0.4); max-width: 280px; }
+.footer-social { display: flex; gap: 1rem; margin-top: 2rem; }
+.social-link { width: 38px; height: 38px; border: 1px solid rgba(200, 169, 107, 0.25); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--gold); text-decoration: none; transition: background 0.3s, border-color 0.3s; cursor: none; }
+.social-link:hover { background: var(--gold); color: var(--charcoal); border-color: var(--gold); }
+.footer-col-title { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 1.5rem; }
+.footer-links { list-style: none; }
+.footer-links li + li { margin-top: 0.85rem; }
+.footer-links a { font-size: 0.8rem; color: rgba(248, 245, 240, 0.45); text-decoration: none; transition: color 0.3s; display: inline-flex; align-items: center; gap: 0.4rem; }
+.footer-links a::before { content: ''; width: 0; height: 1px; background: var(--gold); transition: width 0.3s; }
+.footer-links a:hover { color: var(--cream); }
+.footer-links a:hover::before { width: 12px; }
+.footer-bottom { border-top: 1px solid rgba(200, 169, 107, 0.1); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; }
+.footer-copy { font-size: 0.7rem; color: rgba(248, 245, 240, 0.3); }
+.footer-legal { display: flex; gap: 2rem; }
+.footer-legal a { font-size: 0.65rem; color: rgba(248, 245, 240, 0.3); text-decoration: none; transition: color 0.3s; }
+.footer-legal a:hover { color: var(--gold); }
+.footer-pattern { position: absolute; right: -100px; bottom: -100px; width: 400px; height: 400px; opacity: 0.03; }
+
+/* ── CRAFTSMANSHIP SECTION ── */
+#craft { background: var(--cream); padding: 8rem 5rem; }
+.craft-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 5rem; }
+.craft-item {
+  padding: 3.5rem 2.5rem; border-right: 1px solid rgba(59,43,36,0.1);
+  position: relative; transition: background 0.5s, transform 0.5s;
+  overflow: hidden;
+}
+.craft-item::before {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+  background: var(--gold);
+  transform: scaleX(0); transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+}
+.craft-item:hover::before { transform: scaleX(1); }
+.craft-item:last-child { border-right: none; }
+.craft-item:hover { background: rgba(200,169,107,0.07); }
+.craft-icon { width: 48px; height: 48px; margin-bottom: 1.5rem; }
+.craft-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--coffee); margin-bottom: 0.75rem; font-weight: 400; }
+.craft-desc { font-size: 0.78rem; line-height: 1.85; color: var(--coffee-light); }
+.craft-num { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 300; color: rgba(200, 169, 107, 0.15); position: absolute; top: 1rem; right: 1.5rem; line-height: 1; }
+
+/* ── CUSTOM ORDER CTA ── */
+#custom { background: var(--white); padding: 9rem 5rem; }
+.custom-inner { max-width: 750px; margin: 0 auto; text-align: center; }
+.custom-inner .section-title { font-size: clamp(2.5rem, 4.5vw, 4rem); margin-top: 1rem; }
+.custom-inner .section-subtitle { margin: 1.5rem auto 3rem; text-align: center; }
+.custom-divider { width: 60px; height: 1px; background: var(--gold); margin: 0 auto; }
+.custom-form { margin-top: 3.5rem; }
+
+/* ── MOBILE NAV ── */
+.mobile-nav {
+  position: fixed; inset: 0; z-index: 999;
+  background: var(--charcoal);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  transform: translateX(100%); transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.mobile-nav.open { transform: translateX(0); }
+.mobile-nav-links { list-style: none; text-align: center; }
+.mobile-nav-links li { overflow: hidden; }
+.mobile-nav-links a { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 6vw, 3rem); font-weight: 300; color: var(--cream); text-decoration: none; line-height: 1.6; letter-spacing: 0.05em; transition: color 0.3s; display: block; padding: 0.25rem 0; }
+.mobile-nav-links a:hover { color: var(--gold); }
+.mobile-close { position: absolute; top: 2rem; right: 2rem; background: none; border: none; color: var(--cream); font-size: 1.5rem; cursor: none; }
+.mobile-bottom { position: absolute; bottom: 3rem; font-size: 0.6rem; letter-spacing: 0.35em; text-transform: uppercase; color: rgba(248, 245, 240, 0.3); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+  .collections-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; }
+  .col-card:first-child { grid-column: span 2; aspect-ratio: 16/9; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 900px) {
+  nav { padding: 1.25rem 2rem; }
+  nav.scrolled { padding: 0.85rem 2rem; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  section { padding: 5rem 2rem; }
+  .hero-content { padding: 0 2rem 6rem; }
+  .hero-stats { display: none; }
+  .story-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .story-visual { height: 350px; }
+  .culture-grid { grid-template-columns: 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+  .newsletter-inner { flex-direction: column; gap: 2rem; }
+  .newsletter-form { max-width: 100%; width: 100%; }
+  .craft-grid { grid-template-columns: 1fr 1fr; }
+  .craft-item:nth-child(2) { border-right: none; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  .gallery-grid { grid-template-columns: repeat(3, 1fr); grid-template-rows: auto; }
+  .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+}
+@media (max-width: 600px) {
+  section { padding: 4rem 1.5rem; }
+  nav { padding: 1rem 1.5rem; }
+  .hero-title { font-size: clamp(2.2rem, 9vw, 3.5rem); }
+  .products-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .collections-grid { grid-template-columns: 1fr; }
+  .col-card:first-child { grid-column: span 1; aspect-ratio: 3/4; }
+  .craft-grid { grid-template-columns: 1fr; }
+  .craft-item { border-right: none; border-bottom: 1px solid rgba(59,43,36,0.12); }
+  .footer-top { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+  .gallery-item:nth-child(1) { grid-column: span 2; }
+  .wedding-visual { display: none; }
+  .newsletter-form { flex-direction: column; }
+  .newsletter-input { border-right: 1px solid rgba(42,30,24,0.2); border-bottom: none; }
+  .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+}
+
+/* ── HERO SLIDER ── */
+.hero-slider { position:absolute; inset:0; z-index:0; overflow:hidden; }
+.hero-slide { position:absolute; inset:0; width:100%; height:100%; background-size:cover; background-position:center center; opacity:0; transition:opacity 1.6s cubic-bezier(0.4,0,0.2,1); }
+.hero-slide.active { opacity:1; }
+.hero-overlay { position:absolute; inset:0; z-index:1; pointer-events:none; background:linear-gradient(165deg,rgba(26,17,13,0.82) 0%,rgba(42,30,24,0.65) 50%,rgba(27,67,50,0.4) 100%); }
+.hero-slider-dots { position:absolute; bottom:3rem; right:4rem; display:flex; gap:0.6rem; z-index:4; }
+.hero-dot { width:24px; height:2px; background:rgba(255,255,255,0.3); border:none; cursor:none; padding:0; transition:background 0.4s,width 0.4s; }
+.hero-dot.active { background:var(--gold); width:40px; }
+
+/* ── PRODUCTS GRID 4-col on wide ── */
+.products-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; }
+@media(max-width:1100px){.products-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.products-grid{grid-template-columns:1fr 1fr;gap:1rem;}}
+
+/* ── CART SIDEBAR ── */
+#cart-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:2000; opacity:0; visibility:hidden; transition:opacity 0.4s,visibility 0.4s; backdrop-filter:blur(4px); }
+#cart-overlay.open { opacity:1; visibility:visible; }
+#cart-panel { position:fixed; top:0; right:0; bottom:0; width:420px; max-width:100vw; background:var(--cream); z-index:2001; transform:translateX(100%); transition:transform 0.5s cubic-bezier(0.16,1,0.3,1); display:flex; flex-direction:column; }
+#cart-panel.open { transform:translateX(0); }
+.cart-header { padding:2rem; border-bottom:1px solid rgba(59,43,36,0.1); display:flex; justify-content:space-between; align-items:center; }
+.cart-header h3 { font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:400; color:var(--coffee); }
+.cart-close { background:none; border:none; font-size:1.4rem; cursor:pointer; color:var(--coffee-light); }
+.cart-body { flex:1; overflow-y:auto; padding:1.5rem 2rem; }
+.cart-empty { text-align:center; padding:3rem 0; color:var(--coffee-light); font-size:0.85rem; }
+.cart-item { display:flex; gap:1rem; padding:1rem 0; border-bottom:1px solid rgba(59,43,36,0.08); align-items:center; }
+.cart-item-img { width:70px; height:90px; object-fit:cover; flex-shrink:0; }
+.cart-item-info { flex:1; }
+.cart-item-name { font-family:'Cormorant Garamond',serif; font-size:1rem; color:var(--coffee); margin-bottom:0.3rem; }
+.cart-item-price { font-size:0.8rem; color:var(--coffee-light); }
+.cart-item-remove { background:none; border:none; color:var(--coffee-light); cursor:pointer; font-size:0.8rem; padding:0.2rem 0.5rem; }
+.cart-footer { padding:1.5rem 2rem; border-top:1px solid rgba(59,43,36,0.1); }
+.cart-total { display:flex; justify-content:space-between; font-size:0.85rem; font-weight:600; color:var(--coffee); margin-bottom:1.5rem; }
+.cart-checkout-btn { width:100%; padding:1rem; background:var(--gold); color:var(--charcoal); border:none; font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; font-weight:700; font-family:'Manrope',sans-serif; cursor:pointer; transition:background 0.3s; }
+.cart-checkout-btn:hover { background:var(--coffee); color:var(--cream); }
+
+/* ── TOAST ── */
+.toast { position:fixed; bottom:2rem; left:50%; transform:translateX(-50%) translateY(100px); background:var(--coffee); color:var(--cream); padding:0.85rem 2rem; font-size:0.75rem; letter-spacing:0.1em; z-index:5000; transition:transform 0.4s cubic-bezier(0.16,1,0.3,1); white-space:nowrap; }
+.toast.show { transform:translateX(-50%) translateY(0); }
+
+
+/* ── MOBILE BOTTOM NAV ── */
+.mobile-bottom-nav {
+  display:none; position:fixed; bottom:0; left:0; right:0; z-index:800;
+  background:rgba(42,32,24,0.96); backdrop-filter:blur(20px);
+  border-top:1px solid rgba(200,169,107,0.2);
+  padding:0.6rem 0 calc(0.6rem + env(safe-area-inset-bottom));
+}
+.mobile-bottom-nav ul { display:flex; list-style:none; justify-content:space-around; }
+.mobile-bottom-nav a { display:flex; flex-direction:column; align-items:center; gap:3px; text-decoration:none; color:rgba(248,245,240,0.5); font-size:0.5rem; letter-spacing:0.12em; text-transform:uppercase; transition:color 0.3s; }
+.mobile-bottom-nav a:hover, .mobile-bottom-nav a.active { color:var(--gold); }
+.mobile-bottom-nav .nav-icon-svg { font-size:1.2rem; line-height:1; }
+@media(max-width:768px){ .mobile-bottom-nav{display:block;} body{padding-bottom:70px;} }
+
+/* ── LIGHTBOX ── */
+#lightbox { position:fixed; inset:0; z-index:9000; background:rgba(17,8,4,0.97); display:flex; align-items:center; justify-content:center; opacity:0; visibility:hidden; transition:opacity 0.4s,visibility 0.4s; }
+#lightbox.open { opacity:1; visibility:visible; }
+#lightbox img { max-width:92vw; max-height:88vh; object-fit:contain; box-shadow:0 40px 100px rgba(0,0,0,0.8); }
+.lb-close { position:absolute; top:1.5rem; right:2rem; color:var(--gold); font-size:2rem; cursor:pointer; background:none; border:none; line-height:1; }
+.lb-prev, .lb-next { position:absolute; top:50%; transform:translateY(-50%); background:rgba(200,169,107,0.15); border:1px solid rgba(200,169,107,0.3); color:var(--gold); font-size:1.5rem; padding:1rem 1.25rem; cursor:pointer; transition:background 0.3s; }
+.lb-prev { left:1.5rem; } .lb-next { right:1.5rem; }
+.lb-prev:hover,.lb-next:hover { background:rgba(200,169,107,0.3); }
+
+/* ── GALLERY CURSOR HINT ── */
+.gallery-item { cursor:zoom-in; }
+.gallery-item img { transition:transform 0.7s cubic-bezier(0.16,1,0.3,1), filter 0.4s; }
+.gallery-item:hover img { transform:scale(1.06); filter:brightness(1.08); }
+
+/* ── HERO PHOTO FIX ── */
+#hero { position:relative; min-height:100vh; display:flex; align-items:flex-end; overflow:hidden; background:var(--charcoal); }
+.hero-slide { background-attachment:fixed; }
+@media(max-width:768px){ .hero-slide { background-attachment:scroll; } }
+
+/* ── PRODUCT CARD HOVER GLOW ── */
+.product-card:hover .product-img-wrap { box-shadow:0 20px 60px rgba(200,169,107,0.2); }
+.product-img-wrap { transition:box-shadow 0.5s; }
+
+/* ── STORY IMAGES POLISH ── */
+.story-img-main, .story-img-accent { overflow:hidden; }
+.story-img-main img, .story-img-accent img { transition:transform 0.9s cubic-bezier(0.16,1,0.3,1); }
+.story-img-main:hover img, .story-img-accent:hover img { transform:scale(1.04); }
+
+/* ── COLLECTIONS CARD POLISH ── */
+.col-card { border-radius:0; }
+.col-figure { width:100%; height:100%; overflow:hidden; }
+.col-card-img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.9s cubic-bezier(0.16,1,0.3,1); }
+.col-card:hover .col-card-img { transform:scale(1.07); }
+
+/* ── LOOKBOOK IMG FIX ── */
+.lookbook-img { width:100%; height:500px; display:block; object-fit:cover; object-position:top; transition:transform 0.8s ease; }
+.lookbook-item:hover .lookbook-img { transform:scale(1.04); }
+
+/* ── WEDDING VISUAL FIX ── */
+.wedding-visual { position:absolute; right:0; top:0; bottom:0; width:45%; overflow:hidden; }
+.wedding-visual img { width:100%; height:100%; object-fit:cover; object-position:top; }
+
+/* ── CART BADGE COUNT ── */
+#cartIcon { position:relative; }
+#cartIcon[data-count]:not([data-count="0"])::after {
+  content:attr(data-count); position:absolute; top:-8px; right:-8px;
+  background:var(--gold); color:var(--charcoal);
+  font-size:0.5rem; font-weight:700; width:16px; height:16px;
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-family:'Manrope',sans-serif;
+}
+
+/* ── SECTION DIVIDER ── */
+.gold-divider { width:60px; height:1px; background:var(--gold); display:block; margin:0 auto 2rem; }
+
+/* ── PRESS / TRUST BAR ── */
+#press { background:var(--white); padding:3rem 4rem; border-top:1px solid rgba(59,43,36,0.08); }
+.press-inner { display:flex; align-items:center; justify-content:center; gap:4rem; flex-wrap:wrap; }
+.press-label { font-size:0.55rem; letter-spacing:0.4em; text-transform:uppercase; color:var(--coffee-light); white-space:nowrap; }
+.press-logos { display:flex; gap:3.5rem; align-items:center; flex-wrap:wrap; justify-content:center; }
+.press-logo { font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:400; color:rgba(59,43,36,0.25); letter-spacing:0.12em; text-transform:uppercase; transition:color 0.3s; }
+.press-logo:hover { color:var(--gold); }
+
+/* ── FLOATING WHATSAPP ── */
+.whatsapp-float { position:fixed; bottom:5.5rem; right:1.5rem; z-index:700; background:#25D366; color:#fff; width:52px; height:52px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.5rem; box-shadow:0 8px 24px rgba(37,211,102,0.4); text-decoration:none; transition:transform 0.3s,box-shadow 0.3s; }
+.whatsapp-float:hover { transform:scale(1.12); box-shadow:0 12px 32px rgba(37,211,102,0.55); }
+@media(min-width:769px){ .whatsapp-float { bottom:2rem; } }
+
+/* ── SIZE SELECTOR ── */
+.product-sizes { display:flex; gap:0.4rem; margin-top:0.6rem; flex-wrap:wrap; }
+.size-btn { background:none; border:1px solid rgba(59,43,36,0.2); color:var(--coffee-mid); font-size:0.6rem; padding:0.25rem 0.55rem; cursor:pointer; font-family:'Manrope',sans-serif; letter-spacing:0.08em; transition:all 0.25s; }
+.size-btn:hover, .size-btn.active { background:var(--coffee); color:var(--cream); border-color:var(--coffee); }
+
+
+/* ── QUICK VIEW MODAL ── */
+#qv-overlay { position:fixed; inset:0; background:rgba(17,8,4,0.88); z-index:8000; opacity:0; visibility:hidden; transition:opacity 0.4s,visibility 0.4s; backdrop-filter:blur(8px); }
+#qv-overlay.open { opacity:1; visibility:visible; }
+#qv-modal { position:fixed; top:50%; left:50%; transform:translate(-50%,-60%); z-index:8001; width:min(900px,92vw); max-height:90vh; overflow-y:auto; background:var(--cream); display:grid; grid-template-columns:1fr 1fr; transition:transform 0.5s cubic-bezier(0.16,1,0.3,1),opacity 0.4s; opacity:0; }
+#qv-modal.open { transform:translate(-50%,-50%); opacity:1; }
+.qv-img-wrap { position:relative; overflow:hidden; aspect-ratio:3/4; }
+.qv-img { width:100%; height:100%; object-fit:cover; object-position:top; display:block; }
+.qv-body { padding:2.5rem; display:flex; flex-direction:column; gap:1rem; overflow-y:auto; }
+.qv-close { position:absolute; top:1rem; right:1rem; z-index:1; background:rgba(42,32,24,0.7); color:var(--cream); border:none; width:36px; height:36px; border-radius:50%; font-size:1.1rem; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+.qv-cat { font-size:0.55rem; letter-spacing:0.4em; text-transform:uppercase; color:var(--gold); font-weight:600; }
+.qv-name { font-family:'Cormorant Garamond',serif; font-size:1.9rem; font-weight:400; color:var(--coffee); line-height:1.1; }
+.qv-price { font-size:1rem; font-weight:600; color:var(--coffee); }
+.qv-desc { font-size:0.82rem; line-height:1.9; color:var(--coffee-light); border-top:1px solid rgba(59,43,36,0.1); padding-top:1rem; }
+.qv-label { font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--coffee-mid); font-weight:600; margin-bottom:0.5rem; display:block; }
+.qv-sizes { display:flex; gap:0.4rem; flex-wrap:wrap; }
+.qv-size { background:none; border:1px solid rgba(59,43,36,0.2); color:var(--coffee); font-size:0.7rem; padding:0.35rem 0.75rem; cursor:pointer; font-family:'Manrope',sans-serif; transition:all 0.2s; }
+.qv-size:hover, .qv-size.sel { background:var(--coffee); color:var(--cream); border-color:var(--coffee); }
+.qv-colors { display:flex; gap:0.6rem; }
+.qv-color { width:28px; height:28px; border-radius:50%; cursor:pointer; border:2px solid transparent; transition:border-color 0.2s; }
+.qv-color.sel { border-color:var(--gold); }
+.qv-actions { display:flex; gap:0.75rem; margin-top:auto; }
+.qv-add-btn { flex:1; padding:1rem; background:var(--gold); color:var(--charcoal); border:none; font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; font-weight:700; font-family:'Manrope',sans-serif; cursor:pointer; transition:background 0.3s; }
+.qv-add-btn:hover { background:var(--coffee); color:var(--cream); }
+.qv-wish-btn { width:52px; border:1px solid rgba(59,43,36,0.2); background:none; font-size:1.2rem; cursor:pointer; transition:all 0.2s; }
+.qv-wish-btn:hover { border-color:var(--gold); color:var(--gold); }
+.qv-meta { display:flex; flex-direction:column; gap:0.35rem; border-top:1px solid rgba(59,43,36,0.1); padding-top:1rem; }
+.qv-meta-row { display:flex; gap:1rem; font-size:0.72rem; }
+.qv-meta-key { color:var(--coffee-light); min-width:70px; }
+.qv-meta-val { color:var(--coffee); font-weight:500; }
+@media(max-width:640px){ #qv-modal{grid-template-columns:1fr;} .qv-img-wrap{aspect-ratio:4/3;} }
+
+/* ── CUSTOM FORM ── */
+.custom-form { text-align:left; margin-top:2.5rem; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; margin-bottom:1.25rem; }
+.form-group { display:flex; flex-direction:column; gap:0.4rem; margin-bottom:1.25rem; }
+.form-label { font-size:0.62rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--coffee-mid); font-weight:600; }
+.form-input { background:var(--white); border:1px solid rgba(59,43,36,0.15); padding:0.85rem 1.1rem; font-family:'Manrope',sans-serif; font-size:0.85rem; color:var(--coffee); outline:none; transition:border-color 0.3s,box-shadow 0.3s; border-radius:0; appearance:none; }
+.form-input:focus { border-color:var(--gold); box-shadow:0 0 0 3px rgba(200,169,107,0.12); }
+.form-textarea { resize:vertical; min-height:110px; }
+.form-select { cursor:pointer; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238B6B5E' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 1rem center; padding-right:2.5rem; }
+.custom-note { font-size:0.72rem; color:var(--coffee-light); margin-top:1.5rem; opacity:0.7; }
+@media(max-width:640px){ .form-row{grid-template-columns:1fr;} }
+
+/* ── PRODUCT CARD CURSOR ── */
+.product-card { cursor:pointer; }
+
+/* ── COUNTER ANIMATION ── */
+.stat-num, .story-val-num { transition:none; }
+
+
+/* ── MOUSE FOLLOW GLOW ── */
+.mouse-glow {
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(200, 169, 107, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: screen;
+  transition: opacity 0.5s ease;
+}
+
+</style>
+</head>
+<body>
+<div class="mouse-glow" id="mouseGlow"></div>
+
+<!-- CURSOR -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- PRELOADER -->
+<div id="preloader">
+  <div class="preloader-brand">Kidist Arsema</div>
+  <div class="preloader-sub">Traditional Clothes · Addis Ababa</div>
+  <div class="preloader-bar"></div>
+</div>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" onclick="closeMobileNav()">✕</button>
+  <ul class="mobile-nav-links">
+    <li><a href="#collections" onclick="closeMobileNav()">Collections</a></li>
+    <li><a href="#new-arrivals" onclick="closeMobileNav()">New Arrivals</a></li>
+    <li><a href="#wedding" onclick="closeMobileNav()">Wedding</a></li>
+    <li><a href="#lookbook" onclick="closeMobileNav()">Lookbook</a></li>
+    <li><a href="#story" onclick="closeMobileNav()">Our Story</a></li>
+    <li><a href="#custom" onclick="closeMobileNav()">Custom Orders</a></li>
+    <li><a href="#newsletter" onclick="closeMobileNav()">Contact</a></li>
+  </ul>
+  <div class="mobile-bottom">Wearing Heritage · Since 2010</div>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    Kidist Arsema
+    <span>Traditional Clothes · Ethiopia</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#collections">Collections</a></li>
+    <li><a href="#new-arrivals">New Arrivals</a></li>
+    <li><a href="#wedding">Wedding</a></li>
+    <li><a href="#lookbook">Lookbook</a></li>
+    <li><a href="#story">Our Story</a></li>
+    <li><a href="#custom">Custom Orders</a></li>
+  </ul>
+  <div class="nav-right">
+    <span class="nav-icon">♡</span>
+    <span class="nav-icon cart-badge" onclick="openCart()" style="cursor:pointer;" id="cartIcon">⊕</span>
+    <button class="hamburger" onclick="openMobileNav()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="hero-slider" id="heroSlider">
+    <div class="hero-slide active" style="background-image:url('photos/photo_1_2026-05-10_14-19-11.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('photos/photo_4_2026-05-10_14-19-11.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('photos/photo_8_2026-05-10_14-19-11.jpg')"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-gradient-orb"></div>
+  <svg class="eth-pattern" style="width:500px;height:500px;top:-80px;left:-80px;" viewBox="0 0 400 400" fill="none">
+    <circle cx="200" cy="200" r="180" stroke="#C8A96B" stroke-width="0.5"/>
+    <circle cx="200" cy="200" r="140" stroke="#C8A96B" stroke-width="0.5"/>
+    <circle cx="200" cy="200" r="100" stroke="#C8A96B" stroke-width="0.5"/>
+    <line x1="20" y1="200" x2="380" y2="200" stroke="#C8A96B" stroke-width="0.5"/>
+    <line x1="200" y1="20" x2="200" y2="380" stroke="#C8A96B" stroke-width="0.5"/>
+    <line x1="73" y1="73" x2="327" y2="327" stroke="#C8A96B" stroke-width="0.5"/>
+    <line x1="327" y1="73" x2="73" y2="327" stroke="#C8A96B" stroke-width="0.5"/>
+  </svg>
+  <div class="hero-content" style="z-index:3;">
+    <p class="hero-eyebrow">Est. 2010 &nbsp;·&nbsp; Addis Ababa, Ethiopia</p>
+    <h1 class="hero-title">Ethiopian Heritage<br>Reimagined For<br><em>Modern Elegance</em></h1>
+    <p class="hero-subtitle">Luxury traditional fashion crafted with timeless identity. Where Habesha artistry meets the world's finest runways.</p>
+    <div class="hero-ctas">
+      <a href="#collections" class="btn-primary">Explore Collection &nbsp;→</a>
+      <a href="#custom" class="btn-outline">Book Custom Design</a>
+    </div>
+  </div>
+  <div class="hero-stats" style="z-index:3;">
+    <div class="stat"><div class="stat-num" data-count="500" data-suffix="+">0+</div><div class="stat-label">Designs Created</div></div>
+    <div class="stat"><div class="stat-num" data-count="40" data-suffix="+">0+</div><div class="stat-label">Countries Reached</div></div>
+    <div class="stat"><div class="stat-num" data-count="15" data-suffix="yr">0yr</div><div class="stat-label">Of Heritage</div></div>
+  </div>
+  <div class="hero-slider-dots" style="z-index:3;">
+    <button class="hero-dot active" onclick="goSlide(0)"></button>
+    <button class="hero-dot" onclick="goSlide(1)"></button>
+    <button class="hero-dot" onclick="goSlide(2)"></button>
+  </div>
+  <div class="hero-scroll-indicator" style="z-index:3;">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span class="marquee-item">Habesha Kemis</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Wedding Collection</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Ethiopian Heritage</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Custom Tailoring</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Luxury Embroidery</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Cultural Ceremony</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Modern Habesha</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Royal Gold Edition</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Habesha Kemis</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Wedding Collection</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Ethiopian Heritage</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Custom Tailoring</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Luxury Embroidery</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Cultural Ceremony</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Modern Habesha</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Royal Gold Edition</span><span class="marquee-dot">✦</span>
+  </div>
+</div>
+
+<!-- PRESS / TRUST BAR -->
+<div id="press">
+  <div class="press-inner">
+    <span class="press-label">As Featured In</span>
+    <div class="press-logos">
+      <span class="press-logo">Vogue Africa</span>
+      <span class="press-logo">Ethiopian Herald</span>
+      <span class="press-logo">Addis Fortune</span>
+      <span class="press-logo">African Fashion Intl.</span>
+      <span class="press-logo">Diaspora Style</span>
+    </div>
+  </div>
+</div>
+
+<!-- COLLECTIONS -->
+<section id="collections">
+  <div class="collections-header">
+    <div>
+      <p class="section-eyebrow reveal">Featured Collections</p>
+      <h2 class="section-title reveal reveal-delay-1">The Art of <em>Ethiopian Fashion</em></h2>
+    </div>
+    <a href="#" class="view-all reveal reveal-delay-2">View All Collections →</a>
+  </div>
+
+  <div class="collections-grid">
+    <div class="col-card reveal">
+      <div class="col-figure"><img src="photos/photo_4_2026-05-10_14-19-11.jpg" class="col-card-img" alt="Royal Habesha Kemis"></div>
+      <div class="col-overlay"></div>
+      <div class="col-info">
+        <div class="col-cat">Women's Collection</div>
+        <div class="col-name">Royal Habesha<br>Kemis</div>
+        <a href="#" class="col-cta">Explore <span class="col-cta-arrow">→</span></a>
+      </div>
+    </div>
+    <div class="col-card reveal reveal-delay-1">
+      <div class="col-figure"><img src="photos/photo_5_2026-05-10_14-19-11.jpg" class="col-card-img" alt="Elite Men's Habesha"></div>
+      <div class="col-overlay"></div>
+      <div class="col-info">
+        <div class="col-cat">Men's Collection</div>
+        <div class="col-name">Elite Men's<br>Habesha</div>
+        <a href="#" class="col-cta">Explore <span class="col-cta-arrow">→</span></a>
+      </div>
+    </div>
+    <div class="col-card reveal reveal-delay-2">
+      <div class="col-figure"><img src="photos/photo_20_2026-05-10_14-19-11.jpg" class="col-card-img" alt="Wedding Gold Edition"></div>
+      <div class="col-overlay"></div>
+      <div class="col-info">
+        <div class="col-cat">Bridal</div>
+        <div class="col-name">Wedding<br>Gold Edition</div>
+        <a href="#" class="col-cta">Explore <span class="col-cta-arrow">→</span></a>
+      </div>
+    </div>
+    <div class="col-card reveal reveal-delay-1">
+      <div class="col-figure"><img src="photos/photo_9_2026-05-10_14-19-11.jpg" class="col-card-img" alt="Ceremony Heritage"></div>
+      <div class="col-overlay"></div>
+      <div class="col-info">
+        <div class="col-cat">Cultural</div>
+        <div class="col-name">Ceremony<br>Heritage</div>
+        <a href="#" class="col-cta">Explore <span class="col-cta-arrow">→</span></a>
+      </div>
+    </div>
+    <div class="col-card reveal reveal-delay-2">
+      <div class="col-figure"><img src="photos/photo_7_2026-05-10_14-19-11.jpg" class="col-card-img" alt="Addis Luxury Collection"></div>
+      <div class="col-overlay"></div>
+      <div class="col-info">
+        <div class="col-cat">Modern</div>
+        <div class="col-name">Addis Luxury<br>Collection</div>
+        <a href="#" class="col-cta">Explore <span class="col-cta-arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND STORY -->
+<section id="story">
+  <!-- Background pattern -->
+  <svg class="eth-pattern" style="top:-50px;right:-50px;width:400px;height:400px;" viewBox="0 0 400 400" fill="none">
+    <g opacity="1">
+      <rect x="50" y="50" width="300" height="300" stroke="#C8A96B" stroke-width="0.5" transform="rotate(15 200 200)"/>
+      <rect x="80" y="80" width="240" height="240" stroke="#C8A96B" stroke-width="0.5" transform="rotate(30 200 200)"/>
+      <rect x="110" y="110" width="180" height="180" stroke="#C8A96B" stroke-width="0.5" transform="rotate(45 200 200)"/>
+    </g>
+  </svg>
+  
+  <div class="story-grid">
+    <div class="story-visual reveal-left">
+      <div class="story-img-main"><img src="photos/photo_10_2026-05-10_14-19-11.jpg" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
+      <div class="story-img-accent"><img src="photos/photo_11_2026-05-10_14-19-11.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div class="story-gold-line"></div>
+      <div class="story-number">15</div>
+    </div>
+
+    <div class="story-content">
+      <p class="section-eyebrow reveal">Our Story</p>
+      <h2 class="section-title reveal reveal-delay-1">Where Culture<br>Meets <em>Couture</em></h2>
+      <blockquote class="story-quote reveal reveal-delay-2">
+        "Every thread tells a story of a thousand years of Ethiopian elegance."
+      </blockquote>
+      <p class="story-text reveal reveal-delay-2">Founded in the heart of Addis Ababa, Kidist Arsema Traditional Clothes was born from a deep reverence for Ethiopia's extraordinary textile heritage. We believe that traditional fashion is not merely clothing — it is identity, ceremony, and legacy woven into existence.</p>
+      <p class="story-text reveal reveal-delay-3">Each piece emerges from the hands of master artisans who have inherited generations of embroidery knowledge. Our tilets, our shammas, our Habesha Kemis — each carries the spirit of Ethiopia forward into the modern world without apology.</p>
+      <div class="story-values reveal reveal-delay-3">
+        <div class="story-val">
+          <div class="story-val-num" data-count="500" data-suffix="+">0+</div>
+          <div class="story-val-label">Unique Designs</div>
+        </div>
+        <div class="story-val">
+          <div class="story-val-num" data-count="40" data-suffix="+">0+</div>
+          <div class="story-val-label">Countries</div>
+        </div>
+        <div class="story-val">
+          <div class="story-val-num" data-count="15" data-suffix="yr">0yr</div>
+          <div class="story-val-label">Heritage</div>
+        </div>
+      </div>
+      <br>
+      <a href="#" class="btn-primary" style="margin-top:1rem;display:inline-flex;">Read Full Story →</a>
+    </div>
+  </div>
+</section>
+
+<!-- NEW ARRIVALS -->
+<section id="new-arrivals">
+  <div class="arrivals-header">
+    <div>
+      <p class="section-eyebrow reveal">Just In</p>
+      <h2 class="section-title reveal reveal-delay-1">New <em>Arrivals</em></h2>
+    </div>
+    <a href="#" class="view-all reveal reveal-delay-2">Shop All →</a>
+  </div>
+  <div class="products-grid">
+    <div class="product-card reveal" data-product-id="1" onclick="openQuickView(1)">
+      <div class="product-img-wrap">
+        <img src="photos/photo_12_2026-05-10_14-19-11.jpg" class="product-img" alt="Addis Gold Kemis" loading="lazy">
+        <div class="product-badges"><span class="badge badge-new">New</span></div>
+        <div class="product-actions">
+          <button class="action-btn" onclick="addToCart('Addis Gold Kemis','ETB 4,800','photos/photo_12_2026-05-10_14-19-11.jpg')">Add to Bag</button>
+          <button class="action-btn action-btn-icon" onclick="openQuickView(1)" title="Quick View">👁</button>
+          <button class="action-btn action-btn-icon" title="Wishlist">♡</button>
+        </div>
+      </div>
+      <div class="product-name">Addis Gold Kemis</div>
+      <div class="product-price">
+        <span class="price-current">ETB 4,800</span>
+        
+      </div>
+      <div class="product-rating"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+    </div>
+    <div class="product-card reveal" data-product-id="2" onclick="openQuickView(2)">
+      <div class="product-img-wrap">
+        <img src="photos/photo_13_2026-05-10_14-19-11.jpg" class="product-img" alt="Royal Green Shamma" loading="lazy">
+        <div class="product-badges"><span class="badge badge-new">New</span></div>
+        <div class="product-actions">
+          <button class="action-btn" onclick="addToCart('Royal Green Shamma','ETB 3,840','photos/photo_13_2026-05-10_14-19-11.jpg')">Add to Bag</button>
+          <button class="action-btn action-btn-icon" onclick="openQuickView(2)" title="Quick View">👁</button>
+          <button class="action-btn action-btn-icon" title="Wishlist">♡</button>
+        </div>
+      </div>
+      <div class="product-name">Royal Green Shamma</div>
+      <div class="product-price">
+        <span class="price-current">ETB 3,840</span>
+        <span class="price-original">ETB 4,800</span>
+      </div>
+      <div class="product-rating"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+    </div>
+    <div class="product-card reveal" data-product-id="3" onclick="openQuickView(3)">
+      <div class="product-img-wrap">
+        <img src="photos/photo_14_2026-05-10_14-19-11.jpg" class="product-img" alt="Cream Ceremony Dress" loading="lazy">
+        <div class="product-badges"><span class="badge badge-new">New</span></div>
+        <div class="product-actions">
+          <button class="action-btn" onclick="addToCart('Cream Ceremony Dress','ETB 6,200','photos/photo_14_2026-05-10_14-19-11.jpg')">Add to Bag</button>
+          <button class="action-btn action-btn-icon" onclick="openQuickView(3)" title="Quick View">👁</button>
+          <button class="action-btn action-btn-icon" title="Wishlist">♡</button>
+        </div>
+      </div>
+      <div class="product-name">Cream Ceremony Dress</div>
+      <div class="product-price">
+        <span class="price-current">ETB 6,200</span>
+        
+      </div>
+      <div class="product-rating"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+    </div>
+    <div class="product-card reveal" data-product-id="4" onclick="openQuickView(4)">
+      <div class="product-img-wrap">
+        <img src="photos/photo_15_2026-05-10_14-19-11.jpg" class="product-img" alt="Men's Coffee Gabi" loading="lazy">
+        <div class="product-badges"><span class="badge badge-new">New</span></div>
+        <div class="product-actions">
+          <button class="action-btn" onclick="addToCart('Men\'s Coffee Gabi','ETB 3,600','photos/photo_15_2026-05-10_14-19-11.jpg')">Add to Bag</button>
+          <button class="action-btn action-btn-icon" onclick="openQuickView(4)" title="Quick View">👁</button>
+          <button class="action-btn action-btn-icon" title="Wishlist">♡</button>
+        </div>
+      </div>
+      <div class="product-name">Men's Coffee Gabi</div>
+      <div class="product-price">
+        <span class="price-current">ETB 3,600</span>
+        
+      </div>
+      <div class="product-rating"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+    </div>
+    <div class="product-card reveal" data-product-id="5" onclick="openQuickView(5)">
+      <div class="product-img-wrap">
+        <img src="photos/photo_16_2026-05-10_14-19-11.jpg" class="product-img" alt="Bridal White Kemis" loading="lazy">
+        <div class="product-badges"><span class="badge badge-new">New</span></div>
+        <div class="product-actions">
+          <button class="action-btn" onclick="addToCart('Bridal White Kemis','ETB 8,500','photos/photo_16_2026-05-10_14-19-11.jpg')">Add to Bag</button>
+          <button class="action-btn action-btn-icon" onclick="openQuickView(5)" title="Quick View">👁</button>
+          <button class="action-btn action-btn-icon" title="Wishlist">♡</button>
+        </div>
+      </div>
+      <div class="product-name">Bridal White Kemis</div>
+      <div class="product-price">
+        <span class="price-current">ETB 8,500</span>
+        
+      </div>
+      <div class="product-rating"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+    </div>
+    <div class="product-card reveal" data-product-id="6" onclick="openQuickView(6)">
+      <div class="product-img-wrap">
+        <img src="photos/photo_17_2026-05-10_14-19-11.jpg" class="product-img" alt="Men's Ceremony Suit" loading="lazy">
+        <div class="product-badges"><span class="badge badge-new">New</span></div>
+        <div class="product-actions">
+          <button class="action-btn" onclick="addToCart('Men\'s Ceremony Suit','ETB 5,200','photos/photo_17_2026-05-10_14-19-11.jpg')">Add to Bag</button>
+          <button class="action-btn action-btn-icon" onclick="openQuickView(6)" title="Quick View">👁</button>
+          <button class="action-btn action-btn-icon" title="Wishlist">♡</button>
+        </div>
+      </div>
+      <div class="product-name">Men's Ceremony Suit</div>
+      <div class="product-price">
+        <span class="price-current">ETB 5,200</span>
+        
+      </div>
+      <div class="product-rating"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+    </div>
+    <div class="product-card reveal" data-product-id="7" onclick="openQuickView(7)">
+      <div class="product-img-wrap">
+        <img src="photos/photo_18_2026-05-10_14-19-11.jpg" class="product-img" alt="Tilet Gold Edition" loading="lazy">
+        <div class="product-badges"><span class="badge badge-sale">Sale</span></div>
+        <div class="product-actions">
+          <button class="action-btn" onclick="addToCart('Tilet Gold Edition','ETB 4,200','photos/photo_18_2026-05-10_14-19-11.jpg')">Add to Bag</button>
+          <button class="action-btn action-btn-icon" onclick="openQuickView(7)" title="Quick View">👁</button>
+          <button class="action-btn action-btn-icon" title="Wishlist">♡</button>
+        </div>
+      </div>
+      <div class="product-name">Tilet Gold Edition</div>
+      <div class="product-price">
+        <span class="price-current">ETB 4,200</span>
+        <span class="price-original">ETB 5,000</span>
+      </div>
+      <div class="product-rating"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+    </div>
+    <div class="product-card reveal" data-product-id="8" onclick="openQuickView(8)">
+      <div class="product-img-wrap">
+        <img src="photos/photo_19_2026-05-10_14-19-11.jpg" class="product-img" alt="Modern Habesha Kemis" loading="lazy">
+        <div class="product-badges"><span class="badge badge-new">New</span></div>
+        <div class="product-actions">
+          <button class="action-btn" onclick="addToCart('Modern Habesha Kemis','ETB 3,900','photos/photo_19_2026-05-10_14-19-11.jpg')">Add to Bag</button>
+          <button class="action-btn action-btn-icon" onclick="openQuickView(8)" title="Quick View">👁</button>
+          <button class="action-btn action-btn-icon" title="Wishlist">♡</button>
+        </div>
+      </div>
+      <div class="product-name">Modern Habesha Kemis</div>
+      <div class="product-price">
+        <span class="price-current">ETB 3,900</span>
+        
+      </div>
+      <div class="product-rating"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+    </div></div>
+</section>
+
+<!-- CRAFTSMANSHIP -->
+<section id="craft">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;">
+    <div>
+      <p class="section-eyebrow reveal">The Making</p>
+      <h2 class="section-title reveal reveal-delay-1">Craftsmanship<br><em>& Heritage</em></h2>
+    </div>
+    <p class="section-subtitle reveal reveal-delay-2" style="margin-top:0;">Every garment is a living testament to centuries of Ethiopian artisanal mastery.</p>
+  </div>
+  <div class="craft-grid">
+    <div class="craft-item reveal">
+      <svg class="craft-icon" viewBox="0 0 48 48" fill="none">
+        <circle cx="24" cy="24" r="20" stroke="#C8A96B" stroke-width="1.5"/>
+        <path d="M16 24 Q20 16 24 20 Q28 24 32 16" stroke="#C8A96B" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <circle cx="24" cy="24" r="3" fill="#C8A96B"/>
+      </svg>
+      <div class="craft-num">01</div>
+      <div class="craft-title">Hand Embroidery</div>
+      <div class="craft-desc">Every tilet is sewn by master embroiderers trained in traditional Ethiopian techniques passed down through generations.</div>
+    </div>
+    <div class="craft-item reveal reveal-delay-1">
+      <svg class="craft-icon" viewBox="0 0 48 48" fill="none">
+        <rect x="8" y="8" width="32" height="32" stroke="#C8A96B" stroke-width="1.5" rx="2"/>
+        <path d="M8 24 L40 24 M24 8 L24 40" stroke="#C8A96B" stroke-width="1" opacity="0.5"/>
+        <rect x="16" y="16" width="16" height="16" stroke="#C8A96B" stroke-width="1" rx="1" fill="rgba(200,169,107,0.1)"/>
+      </svg>
+      <div class="craft-num">02</div>
+      <div class="craft-title">Premium Fabric</div>
+      <div class="craft-desc">We source only the finest Ethiopian cotton and hand-woven textiles from highland artisan cooperatives.</div>
+    </div>
+    <div class="craft-item reveal reveal-delay-2">
+      <svg class="craft-icon" viewBox="0 0 48 48" fill="none">
+        <path d="M24 6 L28 18 L40 18 L31 26 L35 38 L24 30 L13 38 L17 26 L8 18 L20 18Z" stroke="#C8A96B" stroke-width="1.5" fill="none"/>
+      </svg>
+      <div class="craft-num">03</div>
+      <div class="craft-title">Cultural Integrity</div>
+      <div class="craft-desc">Each design respects and honors the regional traditions of its origin — from Gondar to Harari, Tigray to Gurage.</div>
+    </div>
+    <div class="craft-item reveal reveal-delay-3">
+      <svg class="craft-icon" viewBox="0 0 48 48" fill="none">
+        <circle cx="24" cy="20" r="8" stroke="#C8A96B" stroke-width="1.5" fill="none"/>
+        <path d="M12 42 C12 34 16 30 24 30 C32 30 36 34 36 42" stroke="#C8A96B" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      </svg>
+      <div class="craft-num">04</div>
+      <div class="craft-title">Custom Fit</div>
+      <div class="craft-desc">Every piece is tailored to your exact measurements by our skilled Addis-based design team for a perfect fit.</div>
+    </div>
+  </div>
+</section>
+
+<!-- WEDDING BANNER -->
+<section id="wedding">
+  <div class="wedding-bg"></div>
+  <div class="wedding-pattern"></div>
+  <div class="wedding-overlay"></div>
+  <div class="wedding-visual"><img src="photos/photo_20_2026-05-10_14-19-11.jpg" style="width:100%;height:100%;object-fit:cover;object-position:top;opacity:0.8;clip-path:polygon(10% 0%,100% 0%,100% 100%,0% 100%);"></div>
+  <div class="wedding-content">
+    <p class="wedding-eyebrow reveal">Bridal Collection</p>
+    <h2 class="wedding-title reveal reveal-delay-1">Ethiopian Wedding<br><em>Royalty</em></h2>
+    <p class="wedding-text reveal reveal-delay-2">Begin your sacred journey adorned in Ethiopia's most exquisite bridal tradition. Our wedding collection blends the timeless beauty of Habesha ceremony wear with luxurious modern craftsmanship.</p>
+    <a href="#" class="btn-primary reveal reveal-delay-3">Explore Wedding Collection →</a>
+  </div>
+</section>
+
+<!-- LOOKBOOK -->
+<section id="lookbook" style="padding-left:0;padding-right:0;">
+  <div class="lookbook-header">
+    <div>
+      <p class="section-eyebrow reveal">Editorial</p>
+      <h2 class="section-title reveal reveal-delay-1">The <em>Lookbook</em></h2>
+    </div>
+    <a href="#" class="view-all reveal">View All →</a>
+  </div>
+  <div class="lookbook-scroll">
+    <div class="lookbook-item">
+      <img src="photos/photo_12_2026-05-10_14-19-11.jpg" class="lookbook-img" />
+      <div class="lookbook-caption">
+        <div class="lookbook-num">01</div>
+        <div class="lookbook-name">Gold Heritage Look</div>
+      </div>
+    </div>
+    <div class="lookbook-item">
+      <img src="photos/photo_13_2026-05-10_14-19-11.jpg" class="lookbook-img" />
+      <div class="lookbook-caption">
+        <div class="lookbook-num">02</div>
+        <div class="lookbook-name">Forest Green Ceremony</div>
+      </div>
+    </div>
+    <div class="lookbook-item">
+      <img src="photos/photo_14_2026-05-10_14-19-11.jpg" class="lookbook-img" />
+      <div class="lookbook-caption">
+        <div class="lookbook-num">03</div>
+        <div class="lookbook-name">Cream Bridal Edit</div>
+      </div>
+    </div>
+    <div class="lookbook-item">
+      <img src="photos/photo_15_2026-05-10_14-19-11.jpg" class="lookbook-img" />
+      <div class="lookbook-caption">
+        <div class="lookbook-num">04</div>
+        <div class="lookbook-name">Men's Royal Gabi</div>
+      </div>
+    </div>
+    <div class="lookbook-item">
+      <img src="photos/photo_16_2026-05-10_14-19-11.jpg" class="lookbook-img" />
+      <div class="lookbook-caption">
+        <div class="lookbook-num">05</div>
+        <div class="lookbook-name">Addis Evening Kemis</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CULTURAL TIMELINE -->
+<section id="culture">
+  <p class="section-eyebrow reveal">Ethiopian Heritage</p>
+  <h2 class="section-title reveal reveal-delay-1">A Culture Woven<br><em>Through Time</em></h2>
+  <div class="culture-grid">
+    <div class="culture-timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-year">Ancient History</div>
+        <div class="timeline-event">The Habesha Kemis Origins</div>
+        <div class="timeline-desc">The Habesha Kemis has its roots in the ancient Aksumite civilization, representing centuries of sophisticated textile culture in the highlands of Ethiopia.</div>
+      </div>
+      <div class="timeline-item reveal reveal-delay-1">
+        <div class="timeline-year">Medieval Era</div>
+        <div class="timeline-event">The Rise of Tilet Embroidery</div>
+        <div class="timeline-desc">The intricate tilet border embroidery emerged as a symbol of status and artistry, with regional variations developing distinct visual languages.</div>
+      </div>
+      <div class="timeline-item reveal reveal-delay-2">
+        <div class="timeline-year">20th Century</div>
+        <div class="timeline-event">Heritage in the Modern Age</div>
+        <div class="timeline-desc">As Ethiopia opened to the world, traditional garments became powerful symbols of cultural pride and national identity on the global stage.</div>
+      </div>
+      <div class="timeline-item reveal reveal-delay-3">
+        <div class="timeline-year">Today</div>
+        <div class="timeline-event">Kidist Arsema's Vision</div>
+        <div class="timeline-desc">We carry this legacy forward — honoring every thread of the past while crafting garments worthy of the Ethiopian century ahead.</div>
+      </div>
+    </div>
+    <div class="culture-visual reveal reveal-delay-2">
+      <div class="culture-pattern-box">
+        <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Geometric Ethiopian cross pattern -->
+          <rect x="0" y="0" width="400" height="400" fill="#1A110D"/>
+          <!-- Outer frame -->
+          <rect x="20" y="20" width="360" height="360" stroke="#C8A96B" stroke-width="0.8" fill="none"/>
+          <rect x="30" y="30" width="340" height="340" stroke="#C8A96B" stroke-width="0.3" fill="none"/>
+          <!-- Ethiopian cross -->
+          <path d="M200 60 L200 340 M60 200 L340 200" stroke="#C8A96B" stroke-width="2"/>
+          <path d="M200 60 L210 80 L200 70 L190 80 Z" fill="#C8A96B"/>
+          <path d="M200 340 L210 320 L200 330 L190 320 Z" fill="#C8A96B"/>
+          <!-- Cross arms with decoration -->
+          <rect x="160" y="160" width="80" height="80" stroke="#C8A96B" stroke-width="1.5" fill="rgba(200,169,107,0.08)" transform="rotate(45 200 200)"/>
+          <rect x="170" y="170" width="60" height="60" stroke="#C8A96B" stroke-width="0.8" fill="none" transform="rotate(45 200 200)"/>
+          <circle cx="200" cy="200" r="15" stroke="#C8A96B" stroke-width="1.5" fill="rgba(200,169,107,0.15)"/>
+          <!-- Corner diamonds -->
+          <polygon points="70,70 85,85 70,100 55,85" stroke="#C8A96B" stroke-width="0.8" fill="rgba(200,169,107,0.1)"/>
+          <polygon points="330,70 345,85 330,100 315,85" stroke="#C8A96B" stroke-width="0.8" fill="rgba(200,169,107,0.1)"/>
+          <polygon points="70,330 85,315 100,330 85,345" stroke="#C8A96B" stroke-width="0.8" fill="rgba(200,169,107,0.1)"/>
+          <polygon points="330,330 315,315 330,300 345,315" stroke="#C8A96B" stroke-width="0.8" fill="rgba(200,169,107,0.1)"/>
+          <!-- Diagonal grid -->
+          <line x1="60" y1="60" x2="340" y2="340" stroke="#C8A96B" stroke-width="0.3" opacity="0.3"/>
+          <line x1="340" y1="60" x2="60" y2="340" stroke="#C8A96B" stroke-width="0.3" opacity="0.3"/>
+          <!-- Circles -->
+          <circle cx="200" cy="200" r="120" stroke="#C8A96B" stroke-width="0.5" fill="none" opacity="0.4"/>
+          <circle cx="200" cy="200" r="80" stroke="#C8A96B" stroke-width="0.5" fill="none" opacity="0.3"/>
+          <!-- Dot grid -->
+          <circle cx="130" cy="130" r="2" fill="#C8A96B" opacity="0.6"/>
+          <circle cx="200" cy="130" r="2" fill="#C8A96B" opacity="0.6"/>
+          <circle cx="270" cy="130" r="2" fill="#C8A96B" opacity="0.6"/>
+          <circle cx="130" cy="200" r="2" fill="#C8A96B" opacity="0.6"/>
+          <circle cx="270" cy="200" r="2" fill="#C8A96B" opacity="0.6"/>
+          <circle cx="130" cy="270" r="2" fill="#C8A96B" opacity="0.6"/>
+          <circle cx="200" cy="270" r="2" fill="#C8A96B" opacity="0.6"/>
+          <circle cx="270" cy="270" r="2" fill="#C8A96B" opacity="0.6"/>
+          <!-- Label -->
+          <text x="200" y="390" text-anchor="middle" fill="#C8A96B" font-size="9" font-family="serif" opacity="0.5" letter-spacing="4">KIDIST ARSEMA · ETHIOPIA</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="testimonials-header">
+    <p class="section-eyebrow reveal" style="display:inline-block;">Voices of Our Clients</p>
+    <h2 class="section-title reveal reveal-delay-1" style="color:var(--cream);">What Our Clients <em style="color:var(--gold-light);">Say</em></h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card reveal">
+      <div class="testimonial-big-quote">"</div>
+      <div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+      <p class="testimonial-quote">I wore my Kidist Arsema Kemis on my wedding day in Washington DC. Every guest was speechless. I had never felt so connected to my Ethiopian roots while standing in America. Pure magic.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">HM</div>
+        <div>
+          <div class="author-name">Hiwot Mekonnen</div>
+          <div class="author-loc">Washington DC, USA</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-1">
+      <div class="testimonial-big-quote">"</div>
+      <div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+      <p class="testimonial-quote">The embroidery on my groom's Habesha suit was extraordinary. Kidist Arsema transformed our wedding into a true Ethiopian royal ceremony. I will order from them forever.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">DT</div>
+        <div>
+          <div class="author-name">Daniel Tadesse</div>
+          <div class="author-loc">Toronto, Canada</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-2">
+      <div class="testimonial-big-quote">"</div>
+      <div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+      <p class="testimonial-quote">As an Ethiopian living in London, finding a brand that truly respects the craft has been a dream. Kidist Arsema is not just fashion — it is heritage with a heartbeat. Absolutely world-class.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">SA</div>
+        <div>
+          <div class="author-name">Sara Alemu</div>
+          <div class="author-loc">London, UK</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" style="padding-top:5rem;padding-bottom:5rem;padding-left:0;padding-right:0;">
+  <div class="gallery-header">
+    <p class="section-eyebrow reveal">Gallery</p>
+    <h2 class="section-title reveal reveal-delay-1">The Visual <em>World</em></h2>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item"><img src="photos/photo_17_2026-05-10_14-19-11.jpg" class="gallery-item-inner" style="width:100%;height:100%;object-fit:cover;" /></div>
+    <div class="gallery-item"><img src="photos/photo_18_2026-05-10_14-19-11.jpg" class="gallery-item-inner" style="width:100%;height:100%;object-fit:cover;" /></div>
+    <div class="gallery-item"><img src="photos/photo_19_2026-05-10_14-19-11.jpg" class="gallery-item-inner" style="width:100%;height:100%;object-fit:cover;" /></div>
+    <div class="gallery-item"><img src="photos/photo_20_2026-05-10_14-19-11.jpg" class="gallery-item-inner" style="width:100%;height:100%;object-fit:cover;" /></div>
+    <div class="gallery-item"><img src="photos/photo_1_2026-05-10_14-19-11.jpg" class="gallery-item-inner" style="width:100%;height:100%;object-fit:cover;" /></div>
+    <div class="gallery-item"><img src="photos/photo_2_2026-05-10_14-19-11.jpg" class="gallery-item-inner" style="width:100%;height:100%;object-fit:cover;" /></div>
+    <div class="gallery-item"><img src="photos/photo_3_2026-05-10_14-19-11.jpg" class="gallery-item-inner" style="width:100%;height:100%;object-fit:cover;" /></div>
+  </div>
+</section>
+
+<!-- CUSTOM ORDER CTA -->
+<section id="custom">
+  <div class="custom-inner" style="max-width:900px;text-align:center;">
+    <div class="custom-divider reveal"></div>
+    <p class="section-eyebrow reveal reveal-delay-1" style="text-align:center;margin-top:2rem;">Bespoke Service</p>
+    <h2 class="section-title reveal reveal-delay-2" style="font-size:clamp(2.5rem,4.5vw,4rem);margin-top:1rem;">Your Vision.<br><em>Our Craft.</em></h2>
+    <p class="section-subtitle reveal reveal-delay-3" style="margin:1.5rem auto 3rem;text-align:center;">Commission a one-of-a-kind Ethiopian garment. From wedding Kemis to ceremonial gabi — our master artisans bring your vision to life.</p>
+
+    <form class="custom-form reveal reveal-delay-3" onsubmit="handleCustomOrder(event)" id="customOrderForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" class="form-input" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" class="form-input" placeholder="your@email.com" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Phone / WhatsApp</label>
+          <input type="tel" class="form-input" placeholder="+1 or +251...">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Garment Type</label>
+          <select class="form-input form-select" required>
+            <option value="">Select type...</option>
+            <option>Women's Habesha Kemis</option>
+            <option>Men's Habesha Suit</option>
+            <option>Bridal Wedding Kemis</option>
+            <option>Ceremonial Gabi / Shamma</option>
+            <option>Complete Wedding Set (His &amp; Hers)</option>
+            <option>Children's Traditional Wear</option>
+            <option>Other / Not sure</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group" style="grid-column:1/-1;">
+        <label class="form-label">Event / Occasion</label>
+        <input type="text" class="form-input" placeholder="e.g. Wedding in July 2025, Timkat ceremony, graduation...">
+      </div>
+      <div class="form-group" style="grid-column:1/-1;">
+        <label class="form-label">Describe Your Vision</label>
+        <textarea class="form-input form-textarea" rows="4" placeholder="Colors, embroidery style, occasion details, inspirations... anything helps!" required></textarea>
+      </div>
+      <div class="form-row" style="align-items:center;">
+        <div class="form-group">
+          <label class="form-label">Budget Range (ETB)</label>
+          <select class="form-input form-select">
+            <option>Under ETB 5,000</option>
+            <option>ETB 5,000 – 10,000</option>
+            <option>ETB 10,000 – 20,000</option>
+            <option>ETB 20,000+</option>
+            <option>Flexible / Discuss</option>
+          </select>
+        </div>
+        <div class="form-group" style="display:flex;align-items:flex-end;padding-bottom:0;">
+          <button type="submit" class="btn-primary" style="width:100%;justify-content:center;padding:1.1rem 2rem;" id="customSubmitBtn">
+            Send Request →
+          </button>
+        </div>
+      </div>
+    </form>
+    <p class="custom-note">We typically respond within 24 hours. For urgent requests, WhatsApp us directly.</p>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section id="newsletter">
+  <div class="newsletter-inner">
+    <div class="newsletter-text">
+      <p class="section-eyebrow">Stay Connected</p>
+      <h2>Join the<br>Heritage Circle</h2>
+    </div>
+    <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+      <input type="email" class="newsletter-input" placeholder="Your email address" required>
+      <button type="submit" class="newsletter-btn">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <svg class="footer-pattern" viewBox="0 0 400 400" fill="none">
+    <circle cx="200" cy="200" r="180" stroke="#C8A96B" stroke-width="1"/>
+    <circle cx="200" cy="200" r="130" stroke="#C8A96B" stroke-width="0.7"/>
+    <circle cx="200" cy="200" r="80" stroke="#C8A96B" stroke-width="0.5"/>
+    <line x1="20" y1="200" x2="380" y2="200" stroke="#C8A96B" stroke-width="0.5"/>
+    <line x1="200" y1="20" x2="200" y2="380" stroke="#C8A96B" stroke-width="0.5"/>
+    <line x1="73" y1="73" x2="327" y2="327" stroke="#C8A96B" stroke-width="0.5"/>
+    <line x1="327" y1="73" x2="73" y2="327" stroke="#C8A96B" stroke-width="0.5"/>
+  </svg>
+
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">Kidist Arsema</div>
+      <div class="footer-brand-sub">Traditional Clothes · Addis Ababa</div>
+      <p class="footer-brand-desc">Luxury Ethiopian traditional fashion crafted for the modern world. Where Habesha heritage meets global couture.</p>
+      <div class="footer-social">
+        <a href="#" class="social-link" title="Instagram">In</a>
+        <a href="#" class="social-link" title="Facebook">Fb</a>
+        <a href="#" class="social-link" title="TikTok">Tk</a>
+        <a href="#" class="social-link" title="YouTube">Yt</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Collections</div>
+      <ul class="footer-links">
+        <li><a href="#">Women's Kemis</a></li>
+        <li><a href="#">Men's Habesha</a></li>
+        <li><a href="#">Wedding Bridal</a></li>
+        <li><a href="#">Cultural Ceremony</a></li>
+        <li><a href="#">New Arrivals</a></li>
+        <li><a href="#">Lookbook</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="#">Custom Orders</a></li>
+        <li><a href="#">Size Guide</a></li>
+        <li><a href="#">Fabric Guide</a></li>
+        <li><a href="#">Delivery Info</a></li>
+        <li><a href="#">Gift Cards</a></li>
+        <li><a href="#">Wholesale</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="#">Bole, Addis Ababa</a></li>
+        <li><a href="tel:+251911000000">+251 911 000 000</a></li>
+        <li><a href="mailto:hello@kidistarsema.com">hello@kidistarsema.com</a></li>
+        <li><a href="#">Book an Appointment</a></li>
+      </ul>
+      <div style="margin-top:1.5rem;">
+        <div class="footer-col-title">Open Hours</div>
+        <p style="font-size:0.75rem;color:rgba(248,245,240,0.35);line-height:1.85;">Mon – Sat: 9am – 7pm<br>Sunday: 11am – 5pm</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Kidist Arsema Traditional Clothes · Addis Ababa, Ethiopia. All rights reserved.</div>
+    <div class="footer-legal">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Returns Policy</a>
+    </div>
+  </div>
+</footer>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<script>
+// ── STATE & DATA ──
+let cartItems = JSON.parse(localStorage.getItem('ka_cart') || '[]');
+const lbImages = Array.from(document.querySelectorAll('.gallery-item img')).map(i => i.src);
+let lbCurrent = 0;
+let qvCurrent = null;
+let slideIdx = 0;
+
+const PRODUCTS = [
+  { id: 1, img: "photos/photo_12_2026-05-10_14-19-11.jpg", name: "Addis Gold Kemis", price: "ETB 4,800", badge: "New", cat: "Women · Kemis", desc: "A masterpiece of Ethiopian embroidery. Hand-stitched tilet borders in 22k gold thread adorn this full-length Habesha Kemis, crafted from premium highland cotton.", fabric: "100% Ethiopian Highland Cotton", care: "Dry clean only", origin: "Addis Ababa" },
+  { id: 2, img: "photos/photo_13_2026-05-10_14-19-11.jpg", name: "Royal Green Shamma", price: "ETB 3,840", orig: "ETB 4,800", badge: "New", cat: "Women · Shamma", desc: "A regal hand-woven shamma in deep emerald, threaded with gold tilet borders. Worn for ceremonies and cultural celebrations.", fabric: "Hand-woven Ethiopian Cotton", care: "Hand wash cold", origin: "Gondar, Ethiopia" },
+  { id: 3, img: "photos/photo_14_2026-05-10_14-19-11.jpg", name: "Cream Ceremony Dress", price: "ETB 6,200", badge: "New", cat: "Women · Ceremony", desc: "Pure ivory ceremony dress featuring intricate cross-stitch embroidery along the neckline and hem. A timeless choice for Ethiopian weddings and feast days.", fabric: "Imported silk-cotton blend", care: "Dry clean only", origin: "Addis Ababa" },
+  { id: 4, img: "photos/photo_15_2026-05-10_14-19-11.jpg", name: "Men's Coffee Gabi", price: "ETB 3,600", badge: "New", cat: "Men · Gabi", desc: "A distinguished men's gabi in rich coffee-brown tones. Wrap-style with gold trim, ideal for Timkat, Meskel, and formal Ethiopian ceremonies.", fabric: "Ethiopian hand-woven cotton", care: "Hand wash cold", origin: "Harar, Ethiopia" },
+  { id: 5, img: "photos/photo_16_2026-05-10_14-19-11.jpg", name: "Bridal White Kemis", price: "ETB 8,500", badge: "New", cat: "Bridal · Kemis", desc: "The pinnacle of Ethiopian bridal fashion. Full-length white Kemis with delicate gold embroidery cascading from neckline to hem — made to last generations.", fabric: "Premium Ethiopian cotton + silk overlay", care: "Dry clean only", origin: "Addis Ababa" },
+  { id: 6, img: "photos/photo_17_2026-05-10_14-19-11.jpg", name: "Men's Ceremony Suit", price: "ETB 5,200", badge: "New", cat: "Men · Suit", desc: "A modern take on the traditional men's Habesha suit. Tailored cut with embroidered lapels and a mandarin collar. Perfect for weddings and cultural events.", fabric: "Ethiopian cotton blend", care: "Dry clean only", origin: "Addis Ababa" },
+  { id: 7, img: "photos/photo_18_2026-05-10_14-19-11.jpg", name: "Tilet Gold Edition", price: "ETB 4,200", orig: "ETB 5,000", badge: "Sale", cat: "Women · Special Edition", desc: "Our bestselling Tilet Gold Edition — featuring the most intricate hand-embroidered border patterns in our collection. Limited availability.", fabric: "Luxury Ethiopian cotton", care: "Dry clean only", origin: "Addis Ababa" },
+  { id: 8, img: "photos/photo_19_2026-05-10_14-19-11.jpg", name: "Modern Habesha Kemis", price: "ETB 3,900", badge: "New", cat: "Women · Modern", desc: "A contemporary interpretation of the classic Habesha Kemis with a fitted silhouette, shorter length, and minimalist embroidery for the modern Ethiopian woman.", fabric: "Cotton-linen blend", care: "Machine wash gentle", origin: "Addis Ababa" }
+];
+
+// ── CURSOR & GLOW ──
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+const glow = document.getElementById('mouseGlow');
+let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX; mouseY = e.clientY;
+  if(cursor) { cursor.style.left = mouseX + 'px'; cursor.style.top = mouseY + 'px'; }
+  if(glow) {
+    gsap.to(glow, { x: mouseX, y: mouseY, duration: 0.6, ease: 'power2.out' });
+  }
+});
+
+function animateRing() {
+  ringX += (mouseX - ringX) * 0.12;
+  ringY += (mouseY - ringY) * 0.12;
+  if(ring) { ring.style.left = ringX + 'px'; ring.style.top = ringY + 'px'; }
+  requestAnimationFrame(animateRing);
+}
+animateRing();
+
+document.querySelectorAll('a, button, .col-card, .product-card, .gallery-item, .lookbook-item').forEach(el => {
+  el.addEventListener('mouseenter', () => document.body.classList.add('cursor-grow'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-grow'));
+});
+
+// ── SMOOTH SCROLL (Lenis) ──
+let lenis;
+try {
+  if (typeof Lenis !== 'undefined') {
+    lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smooth: true });
+    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+  }
+} catch (e) { document.documentElement.style.scrollBehavior = 'smooth'; }
+
+// ── HERO SLIDER ──
+const slides = document.querySelectorAll('.hero-slide');
+const dots = document.querySelectorAll('.hero-dot');
+function goSlide(n) {
+  if(!slides.length) return;
+  slides[slideIdx].classList.remove('active');
+  dots[slideIdx].classList.remove('active');
+  slideIdx = n;
+  slides[slideIdx].classList.add('active');
+  dots[slideIdx].classList.add('active');
+}
+if(slides.length > 0) setInterval(() => goSlide((slideIdx + 1) % slides.length), 5000);
+
+// ── CART ──
+function saveCart() { localStorage.setItem('ka_cart', JSON.stringify(cartItems)); }
+function openCart() {
+  document.getElementById('cart-overlay').classList.add('open');
+  document.getElementById('cart-panel').classList.add('open');
+  renderCart();
+}
+function closeCart() {
+  document.getElementById('cart-overlay').classList.remove('open');
+  document.getElementById('cart-panel').classList.remove('open');
+}
+function addToCart(name, price, img) {
+  const existing = cartItems.find(i => i.name === name);
+  if (existing) { existing.qty++; } else { cartItems.push({name, price, img, qty:1}); }
+  saveCart();
+  updateCartBadge();
+  showToast(name + ' added to bag');
+}
+function removeFromCart(idx) {
+  cartItems.splice(idx, 1);
+  saveCart();
+  updateCartBadge();
+  renderCart();
+}
+function renderCart() {
+  const body = document.getElementById('cartBody');
+  const empty = document.getElementById('cartEmpty');
+  if (!cartItems.length) { 
+    empty.style.display = 'block'; 
+    body.querySelectorAll('.cart-item').forEach(el => el.remove()); 
+    document.getElementById('cartTotal').textContent = 'ETB 0'; 
+    return; 
+  }
+  empty.style.display = 'none';
+  body.querySelectorAll('.cart-item').forEach(el => el.remove());
+  let total = 0;
+  cartItems.forEach((item, i) => {
+    const num = parseInt(item.price.replace(/[^0-9]/g,''));
+    total += num * item.qty;
+    const div = document.createElement('div');
+    div.className = 'cart-item';
+    div.innerHTML = `<img src="${item.img}" class="cart-item-img" alt="${item.name}">
+      <div class="cart-item-info">
+        <div class="cart-item-name">${item.name}</div>
+        <div class="cart-item-price">${item.price} × ${item.qty}</div>
+      </div>
+      <button class="cart-item-remove" onclick="removeFromCart(${i})">✕</button>`;
+    body.appendChild(div);
+  });
+  document.getElementById('cartTotal').textContent = 'ETB ' + total.toLocaleString();
+}
+function updateCartBadge() {
+  const icon = document.getElementById('cartIcon');
+  const count = cartItems.reduce((s,i) => s + i.qty, 0);
+  icon.dataset.count = count;
+}
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2800);
+}
+updateCartBadge();
+
+// ── GSAP & SCROLL ──
+if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+  
+  // Parallax images
+  gsap.utils.toArray('.col-card-img, .product-img, .lookbook-img').forEach(img => {
+    gsap.fromTo(img, { scale: 1.12 }, {
+      scale: 1, ease: 'none',
+      scrollTrigger: { 
+        trigger: img.closest('.col-card, .product-img-wrap, .lookbook-item'), 
+        start: 'top bottom', end: 'bottom top', scrub: 1.5 
+      }
+    });
+  });
+
+  // Reveal animations
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal, .reveal-left').forEach(el => revealObs.observe(el));
+
+  // Magnetic Buttons
+  document.querySelectorAll('.btn-primary, .btn-outline, .qv-add-btn, .action-btn').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+      const rect = btn.getBoundingClientRect();
+      const x = (e.clientX - rect.left - rect.width / 2) * 0.3;
+      const y = (e.clientY - rect.top - rect.height / 2) * 0.3;
+      gsap.to(btn, { x, y, duration: 0.3, ease: 'power2.out' });
+    });
+    btn.addEventListener('mouseleave', () => {
+      gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.3)' });
+    });
+  });
+}
+
+// ── LIGHTBOX ──
+function openLightbox(idx) {
+  lbCurrent = idx;
+  document.getElementById('lbImg').src = lbImages[idx];
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function lbNav(dir) {
+  lbCurrent = (lbCurrent + dir + lbImages.length) % lbImages.length;
+  document.getElementById('lbImg').src = lbImages[lbCurrent];
+}
+document.querySelectorAll('.gallery-item').forEach((el, i) => {
+  el.addEventListener('click', () => openLightbox(i));
+});
+document.querySelectorAll('.lookbook-item img, .col-card-img').forEach(img => {
+  img.style.cursor = 'zoom-in';
+  img.addEventListener('click', (e) => {
+    e.stopPropagation();
+    document.getElementById('lbImg').src = img.src;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+// ── QUICK VIEW ──
+function openQuickView(id) {
+  const p = PRODUCTS.find(x => x.id === id);
+  if (!p) return;
+  qvCurrent = p;
+  document.getElementById('qvImg').src = p.img;
+  document.getElementById('qvCat').textContent = p.cat;
+  document.getElementById('qvName').textContent = p.name;
+  document.getElementById('qvPrice').textContent = p.price + (p.orig ? '  ' + p.orig : '');
+  document.getElementById('qvDesc').textContent = p.desc;
+  document.getElementById('qvFabric').textContent = p.fabric;
+  document.getElementById('qvCare').textContent = p.care;
+  document.getElementById('qvOrigin').textContent = p.origin;
+  document.getElementById('qv-overlay').classList.add('open');
+  document.getElementById('qv-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeQV() {
+  document.getElementById('qv-overlay').classList.remove('open');
+  document.getElementById('qv-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function qvAddToCart() {
+  if (!qvCurrent) return;
+  addToCart(qvCurrent.name, qvCurrent.price, qvCurrent.img);
+  const btn = document.getElementById('qvAddBtn');
+  btn.textContent = 'Added ✓';
+  setTimeout(() => { btn.textContent = 'Add to Bag →'; }, 2000);
+}
+
+// ── UTILS ──
+function openMobileNav() { document.getElementById('mobileNav').classList.add('open'); }
+function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); }
+function handleNewsletterSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.newsletter-btn');
+  btn.textContent = 'Sent ✓';
+  setTimeout(() => { btn.textContent = 'Subscribe'; e.target.reset(); }, 3000);
+}
+function handleCustomOrder(e) {
+  e.preventDefault();
+  const btn = document.getElementById('customSubmitBtn');
+  btn.textContent = 'Sending...';
+  setTimeout(() => {
+    btn.textContent = 'Sent ✓';
+    e.target.reset();
+    showToast('Request received! We\'ll contact you soon.');
+    setTimeout(() => { btn.textContent = 'Send Request →'; }, 4000);
+  }, 1200);
+}
+function animateCount(el) {
+  const target = parseInt(el.dataset.count);
+  const suffix = el.dataset.suffix || '';
+  gsap.to({val:0}, {
+    val: target, duration: 2, ease: 'power3.out',
+    onUpdate: function() { el.textContent = Math.floor(this.targets()[0].val) + suffix; },
+    scrollTrigger: { trigger: el, start: 'top 90%' }
+  });
+}
+document.querySelectorAll('[data-count]').forEach(el => animateCount(el));
+
+// ── THREE.JS PARTICLES ──
+let scene, camera, renderer, particles;
+function initParticles() {
+  const container = document.getElementById('hero');
+  if (!container) return;
+  scene = new THREE.Scene();
+  camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  renderer = new THREE.WebGLRenderer({ alpha: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  container.appendChild(renderer.domElement);
+  renderer.domElement.style.position = 'absolute'; renderer.domElement.style.top = '0'; renderer.domElement.style.zIndex = '1'; renderer.domElement.style.pointerEvents = 'none';
+  const geometry = new THREE.BufferGeometry();
+  const vertices = [];
+  for (let i = 0; i < 1500; i++) { vertices.push(THREE.MathUtils.randFloatSpread(2000), THREE.MathUtils.randFloatSpread(2000), THREE.MathUtils.randFloatSpread(2000)); }
+  geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+  particles = new THREE.Points(geometry, new THREE.PointsMaterial({ color: 0xC8A96B, size: 2, transparent: true, opacity: 0.4 }));
+  scene.add(particles);
+  camera.position.z = 500;
+  function animate() { requestAnimationFrame(animate); particles.rotation.x += 0.0003; particles.rotation.y += 0.0003; renderer.render(scene, camera); }
+  animate();
+}
+window.addEventListener('load', initParticles);
+
+// ── PRELOADER ──
+window.addEventListener('load', () => { setTimeout(() => document.getElementById('preloader').classList.add('hidden'), 1000); });
+
+// ── LISTENERS ──
+document.querySelectorAll('.product-actions button, .size-btn').forEach(btn => btn.addEventListener('click', e => e.stopPropagation()));
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+});
+</script>
+
+
+</body>
+</html>
