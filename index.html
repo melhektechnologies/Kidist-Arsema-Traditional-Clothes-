@@ -900,9 +900,53 @@ footer {
   transition: opacity 0.5s ease;
 }
 
+
+.global-trust-bar {
+  background: var(--black);
+  color: var(--gold-light);
+  font-size: 0.55rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  padding: 0.6rem 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(200, 169, 107, 0.15);
+  position: relative;
+  z-index: 1001;
+}
+@media (max-width: 768px) { .global-trust-bar { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1rem; } }
+
+
+.vip-concierge-card {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  background: var(--charcoal);
+  margin: 8rem 5rem;
+  border: 1px solid rgba(200, 169, 107, 0.1);
+  overflow: hidden;
+  min-height: 500px;
+}
+.concierge-content { padding: 5rem; display: flex; flex-direction: column; justify-content: center; background: linear-gradient(135deg, #1A1A1A 0%, #0A0A0A 100%); }
+.concierge-visual { position: relative; height: 100%; }
+.concierge-visual img { width: 100%; height: 100%; object-fit: cover; filter: sepia(0.2) brightness(0.7); }
+.glass-overlay { position: absolute; inset: 0; background: linear-gradient(to right, #0A0A0A, transparent); z-index: 1; }
+@media (max-width: 1024px) { 
+    .vip-concierge-card { margin: 4rem 2rem; grid-template-columns: 1fr; } 
+    .concierge-content { padding: 3rem; }
+    .glass-overlay { background: linear-gradient(to top, #0A0A0A, transparent); } 
+}
+
 </style>
 </head>
 <body>
+
+<div class="global-trust-bar">
+  <div class="trust-item"><span>✈</span> Priority Global Shipping via DHL Express</div>
+  <div class="trust-item"><span>🔒</span> Secure International Payments</div>
+  <div class="trust-item"><span>🌍</span> Serving Diaspora in 40+ Countries</div>
+</div>
 <div class="mouse-glow" id="mouseGlow"></div>
 
 <!-- CURSOR -->
@@ -1113,9 +1157,9 @@ footer {
 
     <div class="story-content">
       <p class="section-eyebrow reveal">Our Story</p>
-      <h2 class="section-title reveal reveal-delay-1">Where Culture<br>Meets <em>Couture</em></h2>
+      <h2 class="section-title reveal reveal-delay-1">Bridging Addis Ababa<br>to the <em>Global Diaspora</em></h2>
       <blockquote class="story-quote reveal reveal-delay-2">
-        "Every thread tells a story of a thousand years of Ethiopian elegance."
+        "Carrying the heartbeat of Ethiopia to our community in DC, London, Dubai, and beyond."
       </blockquote>
       <p class="story-text reveal reveal-delay-2">Founded in the heart of Addis Ababa, Kidist Arsema Traditional Clothes was born from a deep reverence for Ethiopia's extraordinary textile heritage. We believe that traditional fashion is not merely clothing — it is identity, ceremony, and legacy woven into existence.</p>
       <p class="story-text reveal reveal-delay-3">Each piece emerges from the hands of master artisans who have inherited generations of embroidery knowledge. Our tilets, our shammas, our Habesha Kemis — each carries the spirit of Ethiopia forward into the modern world without apology.</p>
@@ -1534,6 +1578,21 @@ footer {
 </section>
 
 <!-- CUSTOM ORDER CTA -->
+
+<div class="vip-concierge-card reveal">
+  <div class="concierge-content">
+    <p class="section-eyebrow">VIP Service</p>
+    <h3 class="qv-name" style="font-size:2.5rem; margin-bottom:1rem;">Digital Atelier<br>Appointment</h3>
+    <p class="section-subtitle" style="max-width:100%;">For our global clients, we offer 1-on-1 virtual consultations. View fabrics in high-definition and finalize measurements with our head designer via video call.</p>
+    <div style="margin-top:2rem;">
+        <a href="https://wa.me/251911000000" class="btn-primary">Book Video Call</a>
+    </div>
+  </div>
+  <div class="concierge-visual">
+    <div class="glass-overlay"></div>
+    <img src="photos/photo_3_2026-05-10_14-19-11.jpg" alt="Tailoring Process">
+  </div>
+</div>
 <section id="custom">
   <div class="custom-inner" style="max-width:900px;text-align:center;">
     <div class="custom-divider reveal"></div>
