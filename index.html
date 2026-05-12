@@ -192,7 +192,7 @@ nav.scrolled .hamburger span { background: var(--coffee); }
   color: var(--gold); font-weight: 600; font-family: 'Manrope', sans-serif;
   margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem;
   opacity: 0; transform: translateY(20px);
-  animation: heroFadeUp 1s ease forwards 1.8s;
+  animation: heroFadeUp 1s ease forwards 0.5s;
 }
 .hero-eyebrow::before { content: ''; width: 40px; height: 1px; background: var(--gold); opacity: 0.5; }
 .hero-title {
@@ -203,7 +203,7 @@ nav.scrolled .hamburger span { background: var(--coffee); }
   color: var(--white);
   margin-bottom: 2rem;
   opacity: 0; transform: translateY(40px);
-  animation: heroFadeUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards 2s;
+  animation: heroFadeUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.7s;
 }
 .hero-title em { font-style: italic; color: var(--gold-light); font-weight: 300; }
 .hero-subtitle {
@@ -213,12 +213,12 @@ nav.scrolled .hamburger span { background: var(--coffee); }
   margin-bottom: 3rem;
   font-weight: 300;
   opacity: 0; transform: translateY(20px);
-  animation: heroFadeUp 1s ease forwards 2.4s;
+  animation: heroFadeUp 1s ease forwards 0.9s;
 }
 .hero-ctas {
   display: flex; gap: 1.25rem; flex-wrap: wrap;
   opacity: 0; transform: translateY(20px);
-  animation: heroFadeUp 1s ease forwards 2.7s;
+  animation: heroFadeUp 1s ease forwards 1.1s;
 }
 @keyframes heroFadeUp { to { opacity: 1; transform: translateY(0); } }
 
@@ -253,7 +253,7 @@ nav.scrolled .hamburger span { background: var(--coffee); }
   position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
   display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
   z-index: 3;
-  opacity: 0; animation: heroFadeUp 1s ease forwards 3.2s;
+  opacity: 0; animation: heroFadeUp 1s ease forwards 1.5s;
 }
 .hero-scroll-indicator span { font-size: 0.55rem; letter-spacing: 0.4em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
 .scroll-line { width: 1px; height: 60px; background: linear-gradient(to bottom, rgba(200,169,107,0.6), transparent); animation: scrollPulse 2s ease infinite; }
@@ -262,7 +262,7 @@ nav.scrolled .hamburger span { background: var(--coffee); }
 .hero-stats {
   position: absolute; right: 4rem; bottom: 8rem;
   display: flex; gap: 3rem; z-index: 3;
-  opacity: 0; animation: heroFadeUp 1s ease forwards 3s;
+  opacity: 0; animation: heroFadeUp 1s ease forwards 1.3s;
   background: rgba(26,17,13,0.4); backdrop-filter: blur(12px);
   padding: 1.5rem 2rem; border: 1px solid rgba(200,169,107,0.2);
 }
@@ -1021,6 +1021,30 @@ footer {
   <div class="preloader-sub">Traditional Clothes · Addis Ababa</div>
   <div class="preloader-bar"></div>
 </div>
+<script>
+  (function() {
+    const p = document.getElementById('preloader');
+    if (!p) return;
+    
+    // Check if already loaded in this session
+    let alreadyLoaded = false;
+    try { alreadyLoaded = sessionStorage.getItem('kidist_loaded'); } catch(e) {}
+    
+    if (alreadyLoaded) {
+      p.style.display = 'none';
+      p.style.visibility = 'hidden';
+      p.style.opacity = '0';
+    } else {
+      // Show for exactly 1.3 seconds
+      setTimeout(() => {
+        p.classList.add('hidden');
+        try { sessionStorage.setItem('kidist_loaded', 'true'); } catch(e) {}
+        // Completely remove from layout after transition
+        setTimeout(() => { p.style.display = 'none'; }, 1200);
+      }, 1300);
+    }
+  })();
+</script>
 
 <!-- MOBILE NAV -->
 <div class="mobile-nav" id="mobileNav">
@@ -1816,7 +1840,8 @@ footer {
 
 <script>
 // ── STATE & DATA ──
-let cartItems = JSON.parse(localStorage.getItem('ka_cart') || '[]');
+let cartItems = [];
+try { cartItems = JSON.parse(localStorage.getItem('ka_cart') || '[]'); } catch(e) {}
 const lbImages = Array.from(document.querySelectorAll('.gallery-item img')).map(i => i.src);
 let lbCurrent = 0;
 let qvCurrent = null;
@@ -1969,15 +1994,21 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     });
   });
 
-  // Reveal animations
-  const revealObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
-    });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal, .reveal-left').forEach(el => revealObs.observe(el));
+}
 
-  // Magnetic Buttons
+// ── REVEAL ANIMATIONS ──
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { 
+      e.target.classList.add('visible'); 
+      revealObs.unobserve(e.target); 
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal, .reveal-left').forEach(el => revealObs.observe(el));
+
+// ── MAGNETIC BUTTONS ──
+if (typeof gsap !== 'undefined') {
   document.querySelectorAll('.btn-primary, .btn-outline, .qv-add-btn, .action-btn').forEach(btn => {
     btn.addEventListener('mousemove', e => {
       const rect = btn.getBoundingClientRect();
@@ -2052,8 +2083,6 @@ function qvAddToCart() {
 // ── UTILS ──
 function openMobileNav() { document.getElementById('mobileNav').classList.add('open'); }
 function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); }
-, 3000);
-}
 
 function handleCustomOrder(e) {
   e.preventDefault();
@@ -2068,17 +2097,18 @@ function handleCustomOrder(e) {
     e.target.reset();
   }, 2500);
 }
-, 4000);
-  }, 1200);
-}
 function animateCount(el) {
   const target = parseInt(el.dataset.count);
   const suffix = el.dataset.suffix || '';
-  gsap.to({val:0}, {
-    val: target, duration: 2, ease: 'power3.out',
-    onUpdate: function() { el.textContent = Math.floor(this.targets()[0].val) + suffix; },
-    scrollTrigger: { trigger: el, start: 'top 90%' }
-  });
+  if (typeof gsap !== 'undefined') {
+    gsap.to({val:0}, {
+      val: target, duration: 2, ease: 'power3.out',
+      onUpdate: function() { el.textContent = Math.floor(this.targets()[0].val) + suffix; },
+      scrollTrigger: { trigger: el, start: 'top 90%' }
+    });
+  } else {
+    el.textContent = target + suffix;
+  }
 }
 document.querySelectorAll('[data-count]').forEach(el => animateCount(el));
 
@@ -2105,8 +2135,7 @@ function initParticles() {
 }
 window.addEventListener('load', initParticles);
 
-// ── PRELOADER ──
-window.addEventListener('load', () => { setTimeout(() => document.getElementById('preloader').classList.add('hidden'), 1000); });
+// Preloader logic moved to top for robustness
 
 // ── LISTENERS ──
 document.querySelectorAll('.product-actions button, .size-btn').forEach(btn => btn.addEventListener('click', e => e.stopPropagation()));
