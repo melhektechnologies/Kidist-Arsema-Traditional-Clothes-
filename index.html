@@ -178,17 +178,22 @@ nav.scrolled .hamburger span { background: var(--coffee); }
 
 .hero-content {
   position: relative; z-index: 3;
-  padding: 0 4rem 8rem;
-  max-width: 700px;
+  padding: 0 2rem 10rem;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .hero-eyebrow {
-  font-size: 0.6rem; letter-spacing: 0.6em; text-transform: uppercase;
+  font-size: 0.65rem; letter-spacing: 0.5em; text-transform: uppercase;
   color: var(--gold); font-weight: 600; font-family: 'Manrope', sans-serif;
-  margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem;
+  margin-bottom: 2rem; display: flex; align-items: center; justify-content: center; gap: 1.5rem;
   opacity: 0; transform: translateY(20px);
   animation: heroFadeUp 1s ease forwards 0.5s;
 }
-.hero-eyebrow::before { content: ''; width: 40px; height: 1px; background: var(--gold); opacity: 0.5; }
+.hero-eyebrow::before, .hero-eyebrow::after { content: ''; width: 40px; height: 1px; background: var(--gold); opacity: 0.4; }
 .hero-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(3.5rem, 7vw, 6.5rem);
@@ -201,16 +206,16 @@ nav.scrolled .hamburger span { background: var(--coffee); }
 }
 .hero-title em { font-style: italic; color: var(--gold-light); font-weight: 300; }
 .hero-subtitle {
-  font-size: 0.9rem; line-height: 1.8; letter-spacing: 0.04em;
-  color: rgba(255,255,255,0.55);
-  max-width: 420px;
-  margin-bottom: 3rem;
+  font-size: 1rem; line-height: 1.8; letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.7);
+  max-width: 550px;
+  margin-bottom: 3.5rem;
   font-weight: 300;
   opacity: 0; transform: translateY(20px);
   animation: heroFadeUp 1s ease forwards 0.9s;
 }
 .hero-ctas {
-  display: flex; gap: 1.25rem; flex-wrap: wrap;
+  display: flex; gap: 1.5rem; justify-content: center;
   opacity: 0; transform: translateY(20px);
   animation: heroFadeUp 1s ease forwards 1.1s;
 }
@@ -1014,13 +1019,10 @@ footer {
 <div class="mobile-nav" id="mobileNav">
   <button class="mobile-close" onclick="closeMobileNav()">✕</button>
   <ul class="mobile-nav-links">
+    <li><a href="#hero" onclick="closeMobileNav()">Home</a></li>
+    <li><a href="#story" onclick="closeMobileNav()">About</a></li>
     <li><a href="#collections" onclick="closeMobileNav()">Collections</a></li>
-    <li><a href="#new-arrivals" onclick="closeMobileNav()">New Arrivals</a></li>
-    <li><a href="#wedding" onclick="closeMobileNav()">Wedding</a></li>
-    <li><a href="#lookbook" onclick="closeMobileNav()">Lookbook</a></li>
-    <li><a href="#story" onclick="closeMobileNav()">Our Story</a></li>
-    <li><a href="#custom" onclick="closeMobileNav()">Custom Orders</a></li>
-    <li><a href="#newsletter" onclick="closeMobileNav()">Contact</a></li>
+    <li><a href="#custom" onclick="closeMobileNav()">Contact</a></li>
   </ul>
   <div class="mobile-bottom">Wearing Heritage · Since 2010</div>
 </div>
@@ -1032,12 +1034,10 @@ footer {
     <span>Traditional Clothes · Ethiopia</span>
   </a>
   <ul class="nav-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#story">About</a></li>
     <li><a href="#collections">Collections</a></li>
-    <li><a href="#new-arrivals">New Arrivals</a></li>
-    <li><a href="#wedding">Wedding</a></li>
-    <li><a href="#lookbook">Lookbook</a></li>
-    <li><a href="#story">Our Story</a></li>
-    <li><a href="#custom">Custom Orders</a></li>
+    <li><a href="#custom">Contact</a></li>
   </ul>
   <div class="nav-right">
     <span class="nav-icon">♡</span>
@@ -1075,57 +1075,13 @@ footer {
       <a href="#custom" class="btn-outline">Book Custom Design</a>
     </div>
   </div>
-  <div class="hero-stats" style="z-index:3;">
-    <div class="stat"><div class="stat-num" data-count="500" data-suffix="+">0+</div><div class="stat-label">Designs Created</div></div>
-    <div class="stat"><div class="stat-num" data-count="40" data-suffix="+">0+</div><div class="stat-label">Countries Reached</div></div>
-    <div class="stat"><div class="stat-num" data-count="15" data-suffix="yr">0yr</div><div class="stat-label">Of Heritage</div></div>
-  </div>
-  <div class="hero-slider-dots" style="z-index:3;">
-    <button class="hero-dot active" onclick="goSlide(0)"></button>
-    <button class="hero-dot" onclick="goSlide(1)"></button>
-    <button class="hero-dot" onclick="goSlide(2)"></button>
-  </div>
   <div class="hero-scroll-indicator" style="z-index:3;">
     <span>Scroll</span>
     <div class="scroll-line"></div>
   </div>
 </section>
 
-<!-- MARQUEE -->
-<div class="marquee-section">
-  <div class="marquee-track">
-    <span class="marquee-item">Habesha Kemis</span><span class="marquee-dot">✦</span>
-    <span class="marquee-item">Wedding Collection</span><span class="marquee-dot">✦</span>
-    <span class="marquee-item">Ethiopian Heritage</span><span class="marquee-dot">✦</span>
-    <span class="marquee-item">Custom Tailoring</span><span class="marquee-dot">✦</span>
-    <span class="marquee-item">Luxury Embroidery</span><span class="marquee-dot">✦</span>
-    <span class="marquee-item">Cultural Ceremony</span><span class="marquee-dot">✦</span>
-    <span class="marquee-item">Modern Habesha</span><span class="marquee-dot">✦</span>
-    <span class="marquee-item">Royal Gold Edition</span><span class="marquee-dot">✦</span>
-    <span class="marquee-item">Habesha Kemis</span><span class="marquee-dot">✦</span>
-    <span class="marquee-item">Wedding Collection</span><span class="marquee-dot">✦</span>
-    <span class="marquee-item">Ethiopian Heritage</span><span class="marquee-dot">✦</span>
-    <span class="marquee-item">Custom Tailoring</span><span class="marquee-dot">✦</span>
-    <span class="marquee-item">Luxury Embroidery</span><span class="marquee-dot">✦</span>
-    <span class="marquee-item">Cultural Ceremony</span><span class="marquee-dot">✦</span>
-    <span class="marquee-item">Modern Habesha</span><span class="marquee-dot">✦</span>
-    <span class="marquee-item">Royal Gold Edition</span><span class="marquee-dot">✦</span>
-  </div>
-</div>
 
-<!-- PRESS / TRUST BAR -->
-<div id="press">
-  <div class="press-inner">
-    <span class="press-label">As Featured In</span>
-    <div class="press-logos">
-      <span class="press-logo">Vogue Africa</span>
-      <span class="press-logo">Ethiopian Herald</span>
-      <span class="press-logo">Addis Fortune</span>
-      <span class="press-logo">African Fashion Intl.</span>
-      <span class="press-logo">Diaspora Style</span>
-    </div>
-  </div>
-</div>
 
 <!-- COLLECTIONS -->
 <section id="collections">
@@ -1206,8 +1162,8 @@ footer {
     </div>
 
     <div class="story-content">
-      <p class="section-eyebrow reveal">Our Story</p>
-      <h2 class="section-title reveal reveal-delay-1">Bridging Addis Ababa<br>to the <em>Global Diaspora</em></h2>
+      <p class="section-eyebrow reveal">About Us</p>
+      <h2 class="section-title reveal reveal-delay-1">Legacy of <em>Ethiopian Craft</em></h2>
       <blockquote class="story-quote reveal reveal-delay-2">
         "Carrying the heartbeat of Ethiopia to our community in DC, London, Dubai, and beyond."
       </blockquote>
@@ -1237,8 +1193,8 @@ footer {
 <section id="new-arrivals">
   <div class="arrivals-header">
     <div>
-      <p class="section-eyebrow reveal">Just In</p>
-      <h2 class="section-title reveal reveal-delay-1">New <em>Arrivals</em></h2>
+      <p class="section-eyebrow reveal">The Collection</p>
+      <h2 class="section-title reveal reveal-delay-1">Signature <em>Pieces</em></h2>
     </div>
     <a href="#" class="view-all reveal reveal-delay-2">Shop All →</a>
   </div>
@@ -1431,85 +1387,6 @@ footer {
   </div>
 </section>
 
-<!-- WEDDING BANNER -->
-<section id="wedding">
-  <div class="wedding-bg"></div>
-  <div class="wedding-pattern"></div>
-  <div class="wedding-overlay"></div>
-  <div class="wedding-visual"><img src="photos/photo_20_2026-05-10_14-19-11.jpg" style="width:100%;height:100%;object-fit:cover;object-position:top;opacity:0.8;clip-path:polygon(10% 0%,100% 0%,100% 100%,0% 100%);"></div>
-  <div class="wedding-content">
-    <p class="wedding-eyebrow reveal">Bridal Collection</p>
-    <h2 class="wedding-title reveal reveal-delay-1">Ethiopian Wedding<br><em>Royalty</em></h2>
-    <p class="wedding-text reveal reveal-delay-2">Begin your sacred journey adorned in Ethiopia's most exquisite bridal tradition. Our wedding collection blends the timeless beauty of Habesha ceremony wear with luxurious modern craftsmanship.</p>
-    <a href="#" class="btn-primary reveal reveal-delay-3">Explore Wedding Collection →</a>
-  </div>
-</section>
-
-<!-- LOOKBOOK -->
-<section id="lookbook" style="padding-left:0;padding-right:0;">
-  <div class="lookbook-header">
-    <div>
-      <p class="section-eyebrow reveal">Editorial</p>
-      <h2 class="section-title reveal reveal-delay-1">The <em>Lookbook</em></h2>
-    </div>
-    <a href="#" class="view-all reveal">View All →</a>
-  </div>
-  <div class="lookbook-scroll">
-    <div class="lookbook-item">
-      <img src="photos/photo_12_2026-05-10_14-19-11.jpg" class="lookbook-img" />
-      <div class="lookbook-caption">
-        <div class="lookbook-num">01</div>
-        <div class="lookbook-name">Gold Heritage Look</div>
-      </div>
-    </div>
-    <div class="lookbook-item">
-      <img src="photos/photo_13_2026-05-10_14-19-11.jpg" class="lookbook-img" />
-      <div class="lookbook-caption">
-        <div class="lookbook-num">02</div>
-        <div class="lookbook-name">Forest Green Ceremony</div>
-      </div>
-    </div>
-    <div class="lookbook-item">
-      <img src="photos/photo_14_2026-05-10_14-19-11.jpg" class="lookbook-img" />
-      <div class="lookbook-caption">
-        <div class="lookbook-num">03</div>
-        <div class="lookbook-name">Cream Bridal Edit</div>
-      </div>
-    </div>
-    <div class="lookbook-item">
-      <img src="photos/photo_15_2026-05-10_14-19-11.jpg" class="lookbook-img" />
-      <div class="lookbook-caption">
-        <div class="lookbook-num">04</div>
-        <div class="lookbook-name">Men's Royal Gabi</div>
-      </div>
-    </div>
-    <div class="lookbook-item">
-      <img src="photos/photo_16_2026-05-10_14-19-11.jpg" class="lookbook-img" />
-      <div class="lookbook-caption">
-        <div class="lookbook-num">05</div>
-        <div class="lookbook-name">Addis Evening Kemis</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CULTURAL TIMELINE -->
-<section id="culture">
-  <p class="section-eyebrow reveal">Ethiopian Heritage</p>
-  <h2 class="section-title reveal reveal-delay-1">A Culture Woven<br><em>Through Time</em></h2>
-  <div class="culture-grid">
-    <div class="culture-timeline">
-      <div class="timeline-item reveal">
-        <div class="timeline-year">Ancient History</div>
-        <div class="timeline-event">The Habesha Kemis Origins</div>
-        <div class="timeline-desc">The Habesha Kemis has its roots in the ancient Aksumite civilization, representing centuries of sophisticated textile culture in the highlands of Ethiopia.</div>
-      </div>
-      <div class="timeline-item reveal reveal-delay-1">
-        <div class="timeline-year">Medieval Era</div>
-        <div class="timeline-event">The Rise of Tilet Embroidery</div>
-        <div class="timeline-desc">The intricate tilet border embroidery emerged as a symbol of status and artistry, with regional variations developing distinct visual languages.</div>
-      </div>
-      <div class="timeline-item reveal reveal-delay-2">
         <div class="timeline-year">20th Century</div>
         <div class="timeline-event">Heritage in the Modern Age</div>
         <div class="timeline-desc">As Ethiopia opened to the world, traditional garments became powerful symbols of cultural pride and national identity on the global stage.</div>
@@ -1646,9 +1523,9 @@ footer {
 <section id="custom">
   <div class="custom-inner" style="max-width:900px;text-align:center;">
     <div class="custom-divider reveal"></div>
-    <p class="section-eyebrow reveal reveal-delay-1" style="text-align:center;margin-top:2rem;">Bespoke Service</p>
+    <p class="section-eyebrow reveal reveal-delay-1" style="text-align:center;margin-top:2rem;">Contact Us</p>
     <h2 class="section-title reveal reveal-delay-2" style="font-size:clamp(2.5rem,4.5vw,4rem);margin-top:1rem;">Your Vision.<br><em>Our Craft.</em></h2>
-    <p class="section-subtitle reveal reveal-delay-3" style="margin:1.5rem auto 3rem;text-align:center;">Commission a one-of-a-kind Ethiopian garment. From wedding Kemis to ceremonial gabi — our master artisans bring your vision to life.</p>
+    <p class="section-subtitle reveal reveal-delay-3" style="margin:1.5rem auto 3rem;text-align:center;">Have a question or want to commission a custom piece? Reach out to our master artisans.</p>
 
     <form class="custom-form reveal reveal-delay-3" onsubmit="handleCustomOrder(event)" id="customOrderForm">
       <div class="form-row">
