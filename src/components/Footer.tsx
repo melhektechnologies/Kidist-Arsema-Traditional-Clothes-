@@ -23,7 +23,7 @@ export default function Footer() {
   return (
     <footer className="bg-[var(--color-black)] text-[var(--color-cream)] pt-20 pb-10 border-t border-white/5">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
           {/* Brand */}
           <div className="md:col-span-1">
             <h2 className="font-heading text-2xl font-bold tracking-[0.2em] mb-6">
@@ -77,28 +77,6 @@ export default function Footer() {
                 <span className="text-gray-300 font-semibold">+251 911 234 567</span>
               </li>
             </ul>
-          </div>
-
-          {/* Newsletter */}
-          <div>
-            <h3 className="font-bold tracking-[0.25em] uppercase mb-6 text-xs text-[var(--color-gold)]">Newsletter</h3>
-            <p className="text-sm text-gray-400 mb-4">
-              Subscribe to receive private updates and exclusive collection launches.
-            </p>
-            <form className="flex flex-col gap-3" onSubmit={(e) => e.preventDefault()}>
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="bg-white/5 border border-white/10 px-4 py-3 text-sm focus:outline-none focus:border-[var(--color-gold)] focus:bg-white/10 transition-all duration-300"
-                required
-              />
-              <button
-                type="submit"
-                className="bg-[var(--color-gold)] text-black font-bold tracking-[0.2em] uppercase text-xs py-3 hover:bg-white hover:text-black transition-colors duration-300"
-              >
-                Subscribe
-              </button>
-            </form>
           </div>
         </div>
 
