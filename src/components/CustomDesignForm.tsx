@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Upload, X, Check, Loader2 } from "lucide-react";
+import { Upload, X, Check, Loader2, ChevronDown, ChevronUp, Ruler } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -20,6 +20,16 @@ export default function CustomDesignForm() {
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   
+  // Measurement States
+  const [isMeasurementsOpen, setIsMeasurementsOpen] = useState(false);
+  const [measureUnit, setMeasureUnit] = useState<"cm" | "in">("cm");
+  const [measureShoulder, setMeasureShoulder] = useState("");
+  const [measureBust, setMeasureBust] = useState("");
+  const [measureWaist, setMeasureWaist] = useState("");
+  const [measureShoulderToWaist, setMeasureShoulderToWaist] = useState("");
+  const [measureWaistToAnkle, setMeasureWaistToAnkle] = useState("");
+  const [measureArmLength, setMeasureArmLength] = useState("");
+
   // Status States
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -104,6 +114,23 @@ export default function CustomDesignForm() {
     setImagePreview(null);
   };
 
+  const handleScrollToGuide = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const element = document.getElementById("measurements");
+    if (element) {
+      const offset = 80;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+  };
+
   const validate = () => {
     const newErrors: Record<string, string> = {};
     if (!fullName.trim()) newErrors.fullName = "Full Name is required";
@@ -133,6 +160,15 @@ export default function CustomDesignForm() {
       setVision("");
       setImageFile(null);
       setImagePreview(null);
+      
+      // Reset measurements
+      setMeasureShoulder("");
+      setMeasureBust("");
+      setMeasureWaist("");
+      setMeasureShoulderToWaist("");
+      setMeasureWaistToAnkle("");
+      setMeasureArmLength("");
+      setIsMeasurementsOpen(false);
     }, 2500);
   };
 
@@ -243,24 +279,26 @@ export default function CustomDesignForm() {
                   <label htmlFor="occasion" className="block text-xs uppercase tracking-[0.2em] text-gray-300 font-bold">
                     Event / Occasion <span className="text-[var(--color-gold)]">*</span>
                   </label>
-                  <select
-                    id="occasion"
-                    value={occasion}
-                    onChange={(e) => {
-                      setOccasion(e.target.value);
-                      if (errors.occasion) setErrors((prev) => ({ ...prev, occasion: "" }));
-                    }}
-                    className={`w-full bg-black border ${
-                      errors.occasion ? "border-red-500" : "border-white/10"
-                    } px-5 py-3 text-sm text-white focus:outline-none focus:border-[var(--color-gold)] transition-all duration-300 rounded-md appearance-none`}
-                  >
-                    <option value="" disabled className="text-gray-500">Select collection category or occasion</option>
-                    <option value="Women's Collection">Women's Habesha Couture</option>
-                    <option value="Mens' Collection">Men's Traditional Couture</option>
-                    <option value="Wedding Gold Edition">Wedding Gold Edition</option>
-                    <option value="Special Custom Event">Special Event / Anniversary</option>
-                    <option value="Other Boutique Design">Other / Creative Collaboration</option>
-                  </select>
+                  <div className="relative">
+                    <select
+                      id="occasion"
+                      value={occasion}
+                      onChange={(e) => {
+                        setOccasion(e.target.value);
+                        if (errors.occasion) setErrors((prev) => ({ ...prev, occasion: "" }));
+                      }}
+                      className={`w-full bg-black border ${
+                        errors.occasion ? "border-red-500" : "border-white/10"
+                      } px-5 py-3 text-sm text-white focus:outline-none focus:border-[var(--color-gold)] transition-all duration-300 rounded-md appearance-none`}
+                    >
+                      <option value="" disabled className="text-gray-500">Select collection category or occasion</option>
+                      <option value="Women's Collection">Women's Habesha Couture</option>
+                      <option value="Mens' Collection">Men's Traditional Couture</option>
+                      <option value="Wedding Gold Edition">Wedding Gold Edition</option>
+                      <option value="Special Custom Event">Special Event / Anniversary</option>
+                      <option value="Other Boutique Design">Other / Creative Collaboration</option>
+                    </select>
+                  </div>
                   {errors.occasion && <p className="text-red-400 text-xs mt-1">{errors.occasion}</p>}
                 </div>
               </div>
@@ -331,6 +369,180 @@ export default function CustomDesignForm() {
                   )}
                 </div>
                 {errors.image && <p className="text-red-400 text-xs mt-1">{errors.image}</p>}
+              </div>
+
+              {/* Collapsible Sizing / Measurement Guide Accordion */}
+              <div className="border border-white/10 rounded-lg overflow-hidden">
+                <button
+                  type="button"
+                  onClick={() => setIsMeasurementsOpen(!isMeasurementsOpen)}
+                  className="w-full flex items-center justify-between px-6 py-4 bg-white/5 hover:bg-white/10 transition-colors duration-300 text-left"
+                >
+                  <div className="flex items-center gap-3">
+                    <Ruler className="text-[var(--color-gold)]" size={18} />
+                    <span className="text-xs uppercase tracking-[0.2em] font-bold text-gray-200">
+                      Add Your Body Measurements (Optional)
+                    </span>
+                  </div>
+                  {isMeasurementsOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                </button>
+
+                {isMeasurementsOpen && (
+                  <div className="p-6 md:p-8 bg-white/[0.02] border-t border-white/10 space-y-6">
+                    <div className="flex justify-between items-center">
+                      <p className="text-xs text-gray-400 max-w-md">
+                        Providing measurements guarantees a tailored fit. If you don't know your size, click the link to view our interactive measuring guide.
+                      </p>
+                      {/* Unit Selector Toggle */}
+                      <div className="flex rounded-md overflow-hidden border border-white/10">
+                        <button
+                          type="button"
+                          onClick={() => setMeasureUnit("cm")}
+                          className={`px-3 py-1 text-[10px] font-bold tracking-widest uppercase transition-all duration-300 ${
+                            measureUnit === "cm"
+                              ? "bg-[var(--color-gold)] text-black"
+                              : "bg-transparent text-gray-400 hover:text-white"
+                          }`}
+                        >
+                          cm
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setMeasureUnit("in")}
+                          className={`px-3 py-1 text-[10px] font-bold tracking-widest uppercase transition-all duration-300 ${
+                            measureUnit === "in"
+                              ? "bg-[var(--color-gold)] text-black"
+                              : "bg-transparent text-gray-400 hover:text-white"
+                          }`}
+                        >
+                          inches
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                      {/* 1. Shoulder to Shoulder */}
+                      <div className="space-y-1.5">
+                        <label className="block text-[10px] uppercase tracking-wider text-gray-400">
+                          1. Shoulder to Shoulder
+                        </label>
+                        <div className="relative">
+                          <input
+                            type="number"
+                            step="0.1"
+                            value={measureShoulder}
+                            onChange={(e) => setMeasureShoulder(e.target.value)}
+                            placeholder="e.g. 40"
+                            className="w-full bg-white/5 border border-white/10 px-3 py-2 text-sm text-white focus:outline-none focus:border-[var(--color-gold)] rounded-md"
+                          />
+                          <span className="absolute right-3 top-2.5 text-[10px] text-gray-500">{measureUnit}</span>
+                        </div>
+                      </div>
+
+                      {/* 2. Full Bust */}
+                      <div className="space-y-1.5">
+                        <label className="block text-[10px] uppercase tracking-wider text-gray-400">
+                          2. Full Bust
+                        </label>
+                        <div className="relative">
+                          <input
+                            type="number"
+                            step="0.1"
+                            value={measureBust}
+                            onChange={(e) => setMeasureBust(e.target.value)}
+                            placeholder="e.g. 90"
+                            className="w-full bg-white/5 border border-white/10 px-3 py-2 text-sm text-white focus:outline-none focus:border-[var(--color-gold)] rounded-md"
+                          />
+                          <span className="absolute right-3 top-2.5 text-[10px] text-gray-500">{measureUnit}</span>
+                        </div>
+                      </div>
+
+                      {/* 3. Waist Size */}
+                      <div className="space-y-1.5">
+                        <label className="block text-[10px] uppercase tracking-wider text-gray-400">
+                          3. Waist Size
+                        </label>
+                        <div className="relative">
+                          <input
+                            type="number"
+                            step="0.1"
+                            value={measureWaist}
+                            onChange={(e) => setMeasureWaist(e.target.value)}
+                            placeholder="e.g. 72"
+                            className="w-full bg-white/5 border border-white/10 px-3 py-2 text-sm text-white focus:outline-none focus:border-[var(--color-gold)] rounded-md"
+                          />
+                          <span className="absolute right-3 top-2.5 text-[10px] text-gray-500">{measureUnit}</span>
+                        </div>
+                      </div>
+
+                      {/* 4. Shoulder to Waist */}
+                      <div className="space-y-1.5">
+                        <label className="block text-[10px] uppercase tracking-wider text-gray-400">
+                          4. Shoulder to Waist
+                        </label>
+                        <div className="relative">
+                          <input
+                            type="number"
+                            step="0.1"
+                            value={measureShoulderToWaist}
+                            onChange={(e) => setMeasureShoulderToWaist(e.target.value)}
+                            placeholder="e.g. 43"
+                            className="w-full bg-white/5 border border-white/10 px-3 py-2 text-sm text-white focus:outline-none focus:border-[var(--color-gold)] rounded-md"
+                          />
+                          <span className="absolute right-3 top-2.5 text-[10px] text-gray-500">{measureUnit}</span>
+                        </div>
+                      </div>
+
+                      {/* 5. Waist to Ankle */}
+                      <div className="space-y-1.5">
+                        <label className="block text-[10px] uppercase tracking-wider text-gray-400">
+                          5. Waist to Ankle
+                        </label>
+                        <div className="relative">
+                          <input
+                            type="number"
+                            step="0.1"
+                            value={measureWaistToAnkle}
+                            onChange={(e) => setMeasureWaistToAnkle(e.target.value)}
+                            placeholder="e.g. 100"
+                            className="w-full bg-white/5 border border-white/10 px-3 py-2 text-sm text-white focus:outline-none focus:border-[var(--color-gold)] rounded-md"
+                          />
+                          <span className="absolute right-3 top-2.5 text-[10px] text-gray-500">{measureUnit}</span>
+                        </div>
+                      </div>
+
+                      {/* 6. Full Arm Length */}
+                      <div className="space-y-1.5">
+                        <label className="block text-[10px] uppercase tracking-wider text-gray-400">
+                          6. Full Arm Length
+                        </label>
+                        <div className="relative">
+                          <input
+                            type="number"
+                            step="0.1"
+                            value={measureArmLength}
+                            onChange={(e) => setMeasureArmLength(e.target.value)}
+                            placeholder="e.g. 58"
+                            className="w-full bg-white/5 border border-white/10 px-3 py-2 text-sm text-white focus:outline-none focus:border-[var(--color-gold)] rounded-md"
+                          />
+                          <span className="absolute right-3 top-2.5 text-[10px] text-gray-500">{measureUnit}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* How to Measure Scroll Helper */}
+                    <div className="pt-2 text-right">
+                      <a
+                        href="#measurements"
+                        onClick={handleScrollToGuide}
+                        className="inline-flex items-center gap-1.5 text-xs text-[var(--color-gold)] hover:text-white transition-colors duration-300 font-bold uppercase tracking-wider"
+                      >
+                        <Ruler size={12} />
+                        <span>How to Measure? View Interactive Guide</span>
+                      </a>
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* Describe Vision (Optional) */}
