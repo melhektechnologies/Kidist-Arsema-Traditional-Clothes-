@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import { Upload, X, Check, Loader2, ChevronDown, ChevronUp, Ruler } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -336,10 +337,12 @@ export default function CustomDesignForm() {
                   {imagePreview ? (
                     <div className="relative w-full flex flex-col items-center space-y-4">
                       <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-lg overflow-hidden border border-white/20 shadow-xl">
-                        <img
+                        <Image
                           src={imagePreview}
                           alt="Bespoke Inspiration Preview"
-                          className="w-full h-full object-cover"
+                          fill
+                          unoptimized
+                          className="object-cover"
                         />
                         <button
                           type="button"
