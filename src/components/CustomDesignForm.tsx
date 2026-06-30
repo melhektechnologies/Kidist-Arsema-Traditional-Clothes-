@@ -48,7 +48,26 @@ export default function CustomDesignForm() {
       }
     };
 
+    const handleLookbookSelect = (e: Event) => {
+      const customEvent = e as CustomEvent<{ src: string; label: string; category: string }>;
+      if (customEvent.detail) {
+        const { label, category } = customEvent.detail;
+        
+        // Map category to dropdown option
+        if (category === "wedding") {
+          setOccasion("Wedding Gold Edition");
+        } else if (category === "men") {
+          setOccasion("Mens' Collection");
+        } else if (category === "women") {
+          setOccasion("Women's Collection");
+        }
+        
+        setVision(`I am interested in a custom design inspired by the Lookbook item: "${label}".`);
+      }
+    };
+
     window.addEventListener("preselect-collection", handlePreselect);
+    window.addEventListener("lookbook-select", handleLookbookSelect);
 
     // GSAP Entrance
     const ctx = gsap.context(() => {
@@ -69,6 +88,7 @@ export default function CustomDesignForm() {
 
     return () => {
       window.removeEventListener("preselect-collection", handlePreselect);
+      window.removeEventListener("lookbook-select", handleLookbookSelect);
       ctx.revert();
     };
   }, []);

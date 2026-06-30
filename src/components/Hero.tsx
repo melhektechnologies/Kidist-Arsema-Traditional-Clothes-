@@ -1,18 +1,34 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
+
+const slides = [
+  "/images/photo_1_2026-06-30_13-36-37.jpg",
+  "/images/photo_8_2026-06-30_13-36-37.jpg",
+  "/images/photo_12_2026-06-30_13-36-37.jpg",
+  "/images/photo_19_2026-06-30_13-36-37.jpg"
+];
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const taglineRef = useRef<HTMLHeadingElement>(null);
   const subheadRef = useRef<HTMLParagraphElement>(null);
   const buttonsRef = useRef<HTMLDivElement>(null);
-  const imageRef = useRef<HTMLDivElement>(null);
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  useEffect(() => {
+    // Slideshow interval (6 seconds per image)
+    const interval = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % slides.length);
+    }, 6000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -23,24 +39,16 @@ export default function Hero() {
           y: 60,
           opacity: 0,
         });
-        gsap.set(imageRef.current, { scale: 1.15, opacity: 0 });
 
-        tl.to(imageRef.current, {
-          scale: 1.03,
-          opacity: 1,
-          duration: 2.2,
-          ease: "power3.out",
-        })
-          .to(
-            taglineRef.current,
-            {
-              y: 0,
-              opacity: 1,
-              duration: 1.2,
-              ease: "power4.out",
-            },
-            "-=1.6"
-          )
+        tl.to(
+          taglineRef.current,
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1.2,
+            ease: "power4.out",
+          }
+        )
           .to(
             subheadRef.current,
             {
@@ -61,22 +69,10 @@ export default function Hero() {
             },
             "-=0.8"
           );
-
-        // Parallax scroll effect
-        gsap.to(imageRef.current, {
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top top",
-            end: "bottom top",
-            scrub: true,
-          },
-          yPercent: 15,
-          ease: "none",
-        });
       }, containerRef);
 
       return () => ctx.revert();
-    }, 2500); // Wait for the Preloader animation
+    }, 2500); // Wait for Preloader
 
     return () => clearTimeout(timer);
   }, []);
@@ -104,20 +100,26 @@ export default function Hero() {
       ref={containerRef}
       className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-[var(--color-black)]"
     >
-      {/* Background Image Wrapper */}
-      <div className="absolute inset-0 w-full h-full">
-        <div
-          ref={imageRef}
-          className="absolute inset-[-10%] w-[120%] h-[120%] after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-b after:from-black/50 after:via-black/25 after:to-black/70"
-        >
-          <Image
-            src="/images/banners/hero-main.jpg"
-            alt="Kidis Arsema Traditional Clothes Hero"
-            fill
-            priority
-            className="object-cover"
-          />
-        </div>
+      {/* Background Slideshow with crossfade & Ken Burns effect */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
+        <AnimatePresence mode="popLayout">
+          <motion.div
+            key={activeSlide}
+            initial={{ opacity: 0, scale: 1.15 }}
+            animate={{ opacity: 1, scale: 1.05 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 2.2, ease: "easeInOut" }}
+            className="absolute inset-[-10%] w-[120%] h-[120%] after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-b after:from-black/55 after:via-black/30 after:to-black/75"
+          >
+            <Image
+              src={slides[activeSlide]}
+              alt="Kidist Arsema Traditional Clothes Luxury Slideshow"
+              fill
+              priority
+              className="object-cover"
+            />
+          </motion.div>
+        </AnimatePresence>
       </div>
 
       {/* Content */}

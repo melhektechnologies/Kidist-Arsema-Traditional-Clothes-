@@ -78,7 +78,7 @@ export default function AboutSnippet() {
           {/* Craft Image */}
           <div className="craft-img relative aspect-[4/5] w-full max-w-md mx-auto lg:max-w-none overflow-hidden rounded-lg shadow-xl">
             <Image
-              src="/images/products/habesha-01.jpg"
+              src="/images/photo_15_2026-06-30_13-36-37.jpg"
               alt="Traditional Hand Weaving Craftsmanship"
               fill
               className="object-cover hover:scale-105 transition-transform duration-[1.5s] ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
